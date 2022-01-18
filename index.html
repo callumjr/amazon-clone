@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="font-sans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <title>Amazon Clone</title>
+</head>
+<body>
+    <header>
+        <nav class="bg-gray-900 w-full h-14 absolute flex items-center">
+            <!-- logo -->
+            <div class="hover:border hover:border-white hover:delay-75 hover:rounded-sm h-12">
+                <img src="/img/home-nav-logo.png" alt="Logo" class="w-28 my-3 mx-3">
+            </div> 
+
+            <!-- adress -->
+            <a href="#"class="flex items-center mx-2 border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 mr-4">
+                <div class="pr-2 text-white text-xl flex"><ion-icon name="pin"></ion-icon></div>
+                <div class="flex flex-col text-sm leading-3">
+                    <span class="text-gray-300 text-xs">Hello</span>
+                    <span class="text-white font-bold text-sm">Select your adress</span>
+                </div>
+            </a>
+
+            <!-- search bar -->
+            <div class="flex mr-4">
+
+                <!-- Left Nav -->
+                <div class="bg-slate-200 rounded-sm flex items-center hover:bg-slate-300 w-12 p-2 hover:cursor-pointer border-r border-neutral-500 h-10 relative left-0.5">
+                    <div class="flex hover:cursor-pointer">
+                        <span class="text-xs">All</span>
+                        <ion-icon name="arrow-dropdown" class="w-6"></ion-icon>
+                    </div>
+
+                    <select name="" id="" class="relative right-10 opacity-0 hover:cursor-pointer absolute z-10 h-10">
+                        <option selected="selected" value="">All Departments</option>
+                        <option value="">Alexa Skills</option>
+                        <option value="">Amazon Devices</option>
+                        <option value="">Amazon Fresh</option>
+                        <option value="">Amazon Global Store</option>
+                        <option value="">Amazon Warehouse</option>
+                        <option value="">Apps & Games</option>
+                        <option value="">Audible Audiobooks</option>
+                        <option value="">Baby</option>
+                        <option value="">Beauty</option>
+                        <option value="">Books</option>
+                        <option value="">Car & Motorbike</option>
+                        <option value="">CDs & Vinyl</option>
+                        <option value="">Classical Music</option>
+                        <option value="">Clothing</option>
+                        <option value="">Computers & Accessories</option>
+                        <option value="">Digital Music</option>
+                        <option value="">DIY & Tools</option>
+                        <option value="">DVD & Blu-ray</option>
+                        <option value="">Electronics & Photo</option>
+                        <option value="">Fashion</option>
+                        <option value="">Garden & Outdoors</option>
+                        <option value="">Gift Cards</option>
+                        <option value="">Grocery</option>
+                        <option value="">Handmade</option>
+                        <option value="">Health & Personal Care</option>
+                        <option value="">Home & Business Services</option>
+                        <option value="">Home & Kitchen</option>
+                        <option value="">Industrial & Scientific</option>
+                        <option value="">Jewellery</option>
+                        <option value="">Kindle Store</option>
+                        <option value="">Large Appliances</option>
+                        <option value="">Lighting</option>
+                        <option value="">Luggage</option>
+                        <option value="">Morrisons</option>
+                        <option value="">Musical Instruments & DJ Equipment</option>
+                        <option value="">Pet Supplies</option>
+                        <option value="">Premium Beauty</option>
+                        <option value="">Prime Video</option>
+                        <option value="">Shoes & Bags</option>
+                        <option value="">Sports & Outdoors</option>
+                        <option value="">Stationery & Office Supplies</option>
+                        <option value="">Subscribe & Save</option>
+                        <option value="">Toys & Games</option>
+                        <option value="">Watches</option>
+
+                    </select>
+                </div>
+                
+                <!-- Center Nav -->
+                <div class="">
+                    <input type="text" placeholder="" class="relative z-20 h-10 w-96 focus:outline-0">
+                </div>
+
+                <!-- Right Nav -->
+                <div class="rounded-sm flex items-center hover:bg-amber-500 w-12 p-2 hover:cursor-pointer h-10 relative right-0.5 bg-amber-400 flex items-center justify-center">
+                    <ion-icon name="search" class="text-3xl"></ion-icon>
+                </div>
+            </div> 
+
+            <!-- country -->
+            <div class="group">
+                <div class="flex items-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 mr-2 p-2">
+                    <img class="w-6 h-4" src="/img/ukflag1.png" alt="Location">
+                    <ion-icon name="arrow-dropdown" class="w-6 text-gray-300 mt-2"></ion-icon>
+                </div>
+
+                <!-- country dropdown -->
+                <div class="bg-slate-50 text-xs w-60 absolute right-54 top-12 hidden group-hover:block">
+                    <div class="flex flex-col p-4 space-y-3">
+                        <div class="space-x-3 text-left">
+                            <span class="text-slate-800">Change Currency</span>
+                            <a href="#" class="text-blue-500"><span>Learn more</span></a>
+                        </div>
+                    
+                        <div class="flex space-x-3">
+                            <span class="text-slate-800">£ - GBP - British Pound</span>
+                            <a href="#" class="text-blue-500"><span>Change</span></a>
+                        </div>
+
+                        <div class="">
+                            <div class="flex space-x-2">
+                                <img src="/img/ukflag1.png" alt="" class="w-6 h-4">
+                                <span class="text-slate-800">You are shopping on</span>
+                            </div>
+                            <span>Amazon.co.uk</span>
+                        </div>
+
+                        <div>
+                            <a href="#" class="text-blue-500"><span>Change country/region</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sign in -->
+            <div>
+                <div class="flex flex-col justify-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 mr-2">
+                    <span class="text-gray-300 text-xs">Hello, Sign in</span>
+                    <span class="text-white font-bold text-sm">Account & Lists <ion-icon name="arrow-dropdown" class="w-6 text-gray-300"></ion-icon></span>
+                </div>
+
+                <!-- sign in dropdown -->
+                <div class="bg-slate-50 text-xs w-96 absolute right-48 top-12">
+                    <div class="flex flex-col items-center space-y-3 mt-4">
+                        <!-- sign in button -->
+                        <div class="bg-yellow-300 flex items-center justify-center rounded w-44 h-8 border border-amber-500">
+                            <h3 class="p-4">Sign in</h3>
+                        </div>
+                        
+                        <div class="flex border-b border-slate-200 space-x-2 pb-2">
+                            <span>New customer?</span>
+                            <a href="#" class="text-blue-500"><span>Start here.</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- returns -->
+            <div class="flex flex-col justify-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 mr-2">
+                <span class="text-gray-300 text-xs">Returns</span>
+                <span class="text-white font-bold text-sm">& Orders</span>
+            </div>
+
+            <!-- cart -->
+            <div class="border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 mr-2">
+                <ion-icon name="basket" class="text-white text-2xl"></ion-icon>
+                <span class="text-white font-bold text-sm">Basket</span>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>
