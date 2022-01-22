@@ -14,7 +14,7 @@
         <nav id="nav" class="bg-gray-900 w-full h-14 absolute w-full">
             <div id="nav-container" class="hidden md:flex items-center md:space-x w-screen">
                 <!-- logo -->
-                <div class="hover:border hover:border-white hover:delay-75 hover:rounded-sm h-12">
+                <div class="border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 cursor-pointer">
                     <img src="/img/home-nav-logo.png" alt="Logo" class="w-28 my-3 mx-3">
                 </div> 
 
@@ -100,7 +100,7 @@
 
                 <!-- country -->
                 <div id="country-container" class="group">
-                    <div class="flex items-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 mr-2 p-2">
+                    <div class="flex items-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 mr-2 p-2 cursor-pointer">
                         <img class="w-6 h-4" src="/img/ukflag1.png" alt="Location">
                         <ion-icon name="arrow-dropdown" class="w-6 text-gray-300 mt-2 text-sm"></ion-icon>
                     </div>
@@ -135,7 +135,7 @@
 
                 <!-- sign in -->
                 <div>
-                    <div class="flex flex-col justify-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2">
+                    <div class="flex flex-col justify-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 cursor-pointer">
                         <div id="sign-in-top">
                             <span class="text-gray-300 text-xs">Hello,</span>
                             <span class="text-gray-300 text-xs">Sign in</span>
@@ -150,7 +150,7 @@
                     <div class="bg-slate-50 text-xs w-96 absolute right-48 top-12">
                         <div class="flex flex-col items-center space-y-3 mt-4">
                             <!-- sign in button -->
-                            <div class="bg-yellow-300 flex items-center justify-center rounded w-44 h-8 border border-amber-500">
+                            <div class="bg-yellow-300 flex items-center justify-center rounded w-44 h-8 border border-amber-500 cursor-pointer">
                                 <h3 class="p-4">Sign in</h3>
                             </div>
                             
@@ -159,26 +159,43 @@
                                 <a href="#" class="text-blue-500"><span>Start here.</span></a>
                             </div>
                         </div>
+
+                        <div class="relative">
+                            <div class=" ">
+                                <ul class="w-6/12 flex flex-col space-y-2 space-x-2">
+                                    <li class="font-bold text-base ml-1.5">Your Lists</li>
+                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Find a gift</li></a>
+                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Create a List</li></a>
+                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Save Items from the Web</li></a>
+                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Save Items from the Web</li></a>
+                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Baby Wishlist</li></a>
+                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Discover Your Style</li></a>
+                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Explore Showroom</li></a>
+                                </ul>
+                            </div>
+
+                            <div></div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- returns -->
-                <div class="flex flex-col justify-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 mr-2">
+                <div class="flex flex-col justify-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 mr-2 cursor-pointer">
                     <span class="text-gray-300 text-xs">Returns</span>
                     <div class="flex space-x-1">
                         <span class="text-white font-bold text-sm">&</span>
-                        <span class="text-white font-bold text-sm">Orders</span>
+                        <span class="text-white font-bold text-sm ">Orders</span>
                     </div>
                 </div>
 
                 <!-- cart -->
-                <div class="border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 mr-2 flex items-center space-x-1">
+                <div class="border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 mr-2 flex items-center space-x-1 cursor-pointer">
                     <ion-icon name="basket" class="text-white text-2xl"></ion-icon>
                     <span class="text-white font-bold text-sm mt-2">Basket</span>
                 </div>
 
                 <!-- search medium -->
-                <div class="lg:hidden md:flex md:text-xl text-white p-2"><ion-icon name="search"></ion-icon></div>
+                <div class="lg:hidden md:flex md:text-xl text-white p-2 cursor-pointer"><ion-icon name="search"></ion-icon></div>
             </div>
         </nav>
     </header>
