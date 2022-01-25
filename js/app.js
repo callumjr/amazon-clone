@@ -1,14 +1,37 @@
-class AdressPopUp {
-	show(targetDiv) {
-		targetDiv.classList.remove('hidden');
+class Address {
+	show() {
+		document.querySelector('#address-popup').classList.remove('hidden');
+
+		document.querySelector('#overlay').classList.add('opacity-100');
+	}
+
+	hide() {
+		document.querySelector('#address-popup').classList.add('hidden');
+
+		document.querySelector('#overlay').classList.remove('opacity-100');
 	}
 }
 
-const adressPopUp = new AdressPopUp();
+const address = new Address();
 
-const adressContainer = document.querySelector('#adress-container');
+document.querySelector('#address-container').addEventListener('click', function(e) {
+	e.preventDefault();
+	address.show();
+});
 
-adressContainer.classList.add('hidden');
-const adressPopUp = document.querySelector('#adress-popup');
+document.addEventListener('click', function() {
+	if (!document.querySelector('#address-popup').classList.contains('hidden')) {
+		setTimeout(() => {
+			document.addEventListener('click', function(e) {
+				if (!document.getElementById('address-popup-div').contains(e.target)) {
+					address.hide();
+				}
+			});
+		}, 500);
+	}
+});
 
-adressContainer.addEventListener('click', adressPopUp.show(adressPopUp));
+// &&
+// !document.getElementById('address-popup-div').contains(e.target)
+// ) {
+// address.hide();
