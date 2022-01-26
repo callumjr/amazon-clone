@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="">
-        <nav id="nav" class="bg-gray-900 w-full h-14">
+        <nav id="nav" class="bg-gray-900 w-full h-14 flex justify-center">
             <div id="nav-container" class="hidden md:flex items-center md:space-x w-screen">
                 <!-- logo -->
                 <div class="border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 cursor-pointer">
@@ -26,6 +26,54 @@
                         <span class="address-bottom text-white font-bold text-sm">Select your address</span>
                     </div>
                 </a>
+
+                <!-- address pop up -->
+        <div id="address-popup" class="w-full flex justify-center fixed items-center hidden z-30 top-20">
+            <div id="address-popup-div" class="w-3/12 border rounded-lg flex-col overflow-hidden bg-white">
+
+                <div class="bg-slate-100 border-b w-full flex items-center py-4">
+                    <h3 class="text-lg font-bold px-4">Choose your location</h3>
+                </div>
+
+                <div class="flex flex-col items-center space-y-4 mb-6">
+                    <div class="px-4 mt-2">
+                        <span class="text-xs text-slate-700">Delivery options and delivery speeds may vary for different locations</span>
+                    </div>
+
+                    <div class="bg-yellow-300 flex items-center justify-center rounded w-10/12 h-7 cursor-pointer text-xs hover:bg-yellow-400">
+                        <h3 class="p-4">Sign in to see your address</h3>
+                    </div>
+
+                    <div class="text-xs text-slate-500 flex items-center">
+                        <span>or enter a UK postcode</span>
+                    </div>
+
+                    <div class="flex justify-center items-center space-x-4">
+                        <div>
+                            <input type="text" class="border border-zinc-300 rounded focus:outline-0 pl-2">
+                        </div>
+
+                        <div>
+                            <a href="#" class="px-8 py-3 border border-zinc-300 rounded-lg flex justify-center items-center h-4 hover:bg-slate-50">Apply</a>
+                        </div>
+                    </div>
+
+                    <div class="text-xs text-slate-500">
+                        <span>or</span>
+                    </div>
+
+                    <div class="py-1 w-9/12 rounded-lg border border-zinc-300 flex justify-center items-center">
+                        <select name="" id="">
+                            <option value="">Deliver outside the UK</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- address overlay -->
+        <div class="fixed z-20 opacity-0 top-0 left-0 right-0 bottom-0 overlay-bg pointer-events-none" id="overlay"></div>
 
                 <!-- search bar -->
                 <div id="search-bar-container" class="hidden lg:flex mr-4 lg:items-center">
@@ -89,7 +137,7 @@
                     
                     <!-- Center Nav -->
                     <div class="">
-                        <input type="text" placeholder="" class="relative z-20 h-10  focus:outline-0 w-72 lg:w-96">
+                        <input type="text" placeholder="" class="relative z-10 h-10  focus:outline-0 w-72 lg:w-96 pl-2">
                     </div>
 
                     <!-- Right Nav -->
@@ -150,9 +198,9 @@
                     <div class="bg-slate-50 text-xs w-96 absolute right-48 top-12 hidden group-hover:block">
                         <div class="flex flex-col items-center space-y-3 mt-4 ">
                             <!-- sign in button -->
-                            <div class="bg-yellow-300 flex items-center justify-center rounded w-44 h-8 border border-amber-500 cursor-pointer">
+                            <a href="/sign-in.html"><div class="bg-yellow-300 flex items-center justify-center rounded w-44 h-8 border border-amber-500 cursor-pointer hover:bg-yellow-400 hover:border-amber-500">
                                 <h3 class="p-4">Sign in</h3>
-                            </div>
+                            </div></a>
                             
                             <div class="flex border-b border-slate-200 space-x-2 pb-2 w-6/12">
                                 <span>New customer?</span>
@@ -223,55 +271,9 @@
     </header>
 
     <main>
-        <!-- address pop up -->
-        <div id="address-popup" class="w-full flex justify-center fixed items-center hidden z-30 top-20">
-            <div id="address-popup-div" class="w-3/12 border rounded-lg flex-col overflow-hidden bg-white">
-
-                <div class="bg-slate-100 border-b w-full flex items-center py-4">
-                    <h3 class="text-lg font-bold px-4">Choose your location</h3>
-                </div>
-
-                <div class="flex flex-col items-center space-y-4 mb-6">
-                    <div class="px-4 mt-2">
-                        <span class="text-xs text-slate-700">Delivery options and delivery speeds may vary for different locations</span>
-                    </div>
-
-                    <div class="bg-yellow-300 flex items-center justify-center rounded w-10/12 h-7 cursor-pointer text-xs hover:bg-yellow-400">
-                        <h3 class="p-4">Sign in to see your address</h3>
-                    </div>
-
-                    <div class="text-xs text-slate-500 flex items-center">
-                        <span>or enter a UK postcode</span>
-                    </div>
-
-                    <div class="flex justify-center items-center space-x-4">
-                        <div>
-                            <input type="text" class="border rounded focus:outline-0">
-                        </div>
-
-                        <div>
-                            <a href="#" class="px-8 py-3 border rounded-lg flex justify-center items-center h-4 hover:bg-slate-50">Apply</a>
-                        </div>
-                    </div>
-
-                    <div class="text-xs text-slate-500">
-                        <span>or</span>
-                    </div>
-
-                    <div class="py-1 w-9/12 rounded-lg border flex justify-center items-center">
-                        <select name="" id="">
-                            <option value="">Deliver outside the UK</option>
-                        </select>
-                    </div>
-                </div>
-
-            </div>
-        </div>
         
-        <!-- address overlay -->
-        <div class="fixed z-20 opacity-0 top-0 left-0 right-0 bottom-0 overlay-bg pointer-events-none" id="overlay"></div>
     </main>
 
-    <script src="/js/app.js"></script>
+    <script src="/js/address.js"></script>
 </body>
 </html>

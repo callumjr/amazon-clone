@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <title>Sign in!</title>
+</head>
+<body>
+    <header class="w-full flex items-center justify-center h-20">
+        <img src="/img/amazon-logo-black.png" alt="Amazon Logo" class="w-32 min-h-max">
+        <span class="ml-1 relative bottom-1">.co.uk</span>
+    </header>
+
+    <main class="w-full flex justify-center">
+
+        <!-- sign in card -->
+        <div class="w-3/12 border rounded border-zinc-300 space-y-3 p-6">
+            <h3 class="text-3xl font-light">Sign in</h3>
+
+            <form action="" class="space-y-3">
+                <div class="flex flex-col space-y-1">
+                    <label class="font-bold text-xs" for="">Email or mobile phone number</label>
+                    <input id="email-phone-number" type="text" class="w-full border rounded border-zinc-300 focus:outline-0">
+                </div>
+
+                <div id="invalid-entry" class="hidden">
+                    <span class="flex justify-center text-red-700 text-xs"><ion-icon class="text-lg mr-2" name="alert"></ion-icon>Enter your e-mail address or mobile phone number
+                    </span>
+                </div>
+
+                <div>
+                    <a id="continue-button" href=""><div class="bg-yellow-300 text-sm flex items-center justify-center rounded w-full h-7 border border-amber-500 cursor-pointer hover:bg-yellow-400 hover:border-amber-500">
+                        <h3 class="p-4">Continue</h3>
+                    </div></a>
+                </div>
+            </form>
+        </div>
+
+        <!-- divider -->
+
+        <!-- create account button -->
+
+    </main>
+
+    <footer></footer>
+
+    <script src="/js/sign-in.js"></script>
+</body>
+</html>
