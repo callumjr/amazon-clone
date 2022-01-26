@@ -1,26 +1,46 @@
 class SignIn {
-	constructor() {}
-
 	emailValidation(value) {
 		if (/^([a-zA-Z0-9_\.\-]+)@([a-zA-Z]+).([a-zA-Z\.]+)$/.test(value)) {
 			this.email = value;
-			if (!document.querySelector('#invalid-entry').classList.contains('hidden')) {
-				document.querySelector('#invalid-entry').classList.add('hidden');
+
+			window.open('/sign-in-password.html', '_self');
+
+			if (!document.querySelector('#invalid-email').classList.contains('hidden')) {
+				document.querySelector('#invalid-email').classList.add('hidden');
 			}
 		} else if (/^\d{11}$/.test(value)) {
 			this.number = value;
-			if (!document.querySelector('#invalid-entry').classList.contains('hidden')) {
-				document.querySelector('#invalid-entry').classList.add('hidden');
+
+			window.open('/sign-in-password.html', '_self');
+
+			if (!document.querySelector('#invalid-email').classList.contains('hidden')) {
+				document.querySelector('#invalid-email').classList.add('hidden');
 			}
 		} else {
-			document.querySelector('#invalid-entry').classList.remove('hidden');
+			document.querySelector('#invalid-email').classList.remove('hidden');
 		}
+	}
+
+	helpDropdown() {
+		document.querySelector('#help-icon-right').classList.toggle('hidden');
+		document.querySelector('#help-icon-down').classList.toggle('hidden');
+		document.querySelector('.help-extras').classList.toggle('hidden');
 	}
 }
 
 const signIn = new SignIn();
 
-document.querySelector('#continue-button').addEventListener('click', e => {
-	e.preventDefault();
-	signIn.emailValidation(document.querySelector('#email-phone-number').value);
-});
+if (window.location.href === 'http://127.0.0.1:5501/sign-in.html#') {
+	document.querySelector('#continue-button').addEventListener('click', e => {
+		signIn.emailValidation(document.querySelector('#email-phone-number').value);
+	});
+
+	document.querySelector('#help-button').addEventListener('click', e => {
+		e.preventDefault();
+		signIn.helpDropdown();
+	});
+}
+
+if (window.location.href === 'http://127.0.0.1:5501/sign-in-password.html') {
+	document.querySelector('.email-insert').innerHTML = `<span>${signIn.email}</span>`;
+}

@@ -22,7 +22,7 @@ document.querySelector('#address-container').addEventListener('click', e => {
 document.addEventListener('mouseup', function(e) {
 	if (
 		!document.querySelector('#address-popup').classList.contains('hidden') &&
-		!document.getElementById('address-popup-div').contains(e.target)
+		!document.querySelector('#address-popup-div').contains(e.target)
 	) {
 		address.hide();
 	}
