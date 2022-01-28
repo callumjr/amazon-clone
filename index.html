@@ -15,7 +15,7 @@
             <div id="nav-container" class="hidden md:flex items-center md:space-x w-screen">
                 <!-- logo -->
                 <div class="border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 cursor-pointer">
-                    <img src="/img/home-nav-logo.png" alt="Logo" class="w-28 my-3 mx-3">
+                    <a href="/index.html"><img src="/img/home-nav-logo.png" alt="Logo" class="w-28 my-3 mx-3"></a>
                 </div> 
 
                 <!-- address -->
@@ -23,13 +23,13 @@
                     <div class="pr-2 text-white text-xl flex"><ion-icon name="pin"></ion-icon></div>
                     <div class="flex flex-col text-sm leading-3">
                         <span class="address-top text-gray-300 text-xs">Hello</span>
-                        <span class="address-bottom text-white font-bold text-sm">Select your address</span>
+                        <span class="address-bottom text-white font-bold text-sm">Select address</span>
                     </div>
                 </a>
 
                 <!-- address pop up -->
-        <div id="address-popup" class="w-full flex justify-center fixed items-center hidden z-30 top-20">
-            <div id="address-popup-div" class="w-3/12 border rounded-lg flex-col overflow-hidden bg-white">
+                <div id="address-popup" class="w-full flex justify-center fixed items-center hidden z-30 top-20">
+                <div id="address-popup-div" class="w-3/12 border rounded-lg flex-col overflow-hidden bg-white">
 
                 <div class="bg-slate-100 border-b w-full flex items-center py-4">
                     <h3 class="text-lg font-bold px-4">Choose your location</h3>
@@ -87,13 +87,13 @@
 
                         <select name="" id="" class="relative right-10 opacity-0 hover:cursor-pointer absolute z-10 h-10">
                             <option selected="selected" value="">All Departments</option>
-                            <option value="">Alexa Skills</option>
-                            <option value="">Amazon Devices</option>
-                            <option value="">Amazon Fresh</option>
-                            <option value="">Amazon Global Store</option>
-                            <option value="">Amazon Warehouse</option>
-                            <option value="">Apps & Games</option>
-                            <option value="">Audible Audiobooks</option>
+                            <option value="">Skills</option>
+                            <option value="">Devices</option>
+                            <option value="">Fresh</option>
+                            <option value="">Global Store</option>
+                            <option value="">Warehouse</option>
+                            <option value="">Games</option>
+                            <option value="">Audiobooks</option>
                             <option value="">Baby</option>
                             <option value="">Beauty</option>
                             <option value="">Books</option>
@@ -116,7 +116,7 @@
                             <option value="">Home & Kitchen</option>
                             <option value="">Industrial & Scientific</option>
                             <option value="">Jewellery</option>
-                            <option value="">Kindle Store</option>
+                            <option value="">Store</option>
                             <option value="">Large Appliances</option>
                             <option value="">Lighting</option>
                             <option value="">Luggage</option>
@@ -124,7 +124,7 @@
                             <option value="">Musical Instruments & DJ Equipment</option>
                             <option value="">Pet Supplies</option>
                             <option value="">Premium Beauty</option>
-                            <option value="">Prime Video</option>
+                            <option value="">Video</option>
                             <option value="">Shoes & Bags</option>
                             <option value="">Sports & Outdoors</option>
                             <option value="">Stationery & Office Supplies</option>
@@ -167,11 +167,11 @@
                             </div>
 
                             <div class="">
-                                <div class="flex ">
+                                <div class="flex space-x-2">
                                     <img src="/img/ukflag1.png" alt="" class="w-6 h-4">
                                     <span class="text-slate-800">You are shopping on</span>
                                 </div>
-                                <span>Amazon.co.uk</span>
+                                <span>Amazzon.co.uk</span>
                             </div>
 
                             <div>
@@ -234,11 +234,11 @@
                                     <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Your Prime Membership</li></a>
                                     <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Register for a Business Account</li></a>
                                     <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Manage Your Content and Devices</li></a>
-                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Your Kindle Unlimited</li></a>
+                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Your Unlimited</li></a>
                                     <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Your Music Subscriptions</li></a>
                                     <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Your Music</li></a>
-                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Your Amazon Drive</li></a>
-                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Your Prime Video</li></a>
+                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Your Drive</li></a>
+                                    <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Your Video</li></a>
                                     <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Your Watchlist</li></a>
                                     <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Your Video Purchases & Rentals</li></a>
                                     <a href="#" class="hover:text-orange-500 text-neutral-600 hover:underline"><li>Your Games and Software Library</li></a>
@@ -270,8 +270,67 @@
         </nav>
     </header>
 
-    <main>
-        
+    <main class="bg-gray-200 h-screen">
+        <div class="grid-cols-4 gid-rows-3 grid gap-5 mx-8">
+            <div class="bg-white py-2 px-4 flex flex-col space-y-8">
+                <div class="z-20">
+                    <span class="font-semibold text-xl h-1/6">Top Deal</span>
+                </div>
+                <div class="mb-2 h-4/6">
+                    <img class="" src="/img/macbookpro.jpeg" alt="">
+                    <span class="text-lg">£1800 - £5400</span>
+                </div>
+                <div class="h-1/6"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">See more deals</span></div>
+            </div>
+
+            <div class="bg-white py-2 px-4">
+                <div class="z-20 h-1/6">
+                    <span class="font-semibold text-xl">Deals on Devices</span>
+                </div>
+                <div class="mb-2 grid grid-rows-2 grid-cols-2 gap-4 h4/6">
+                    <div class="flex flex-col justify-center">
+                        <img class="w-28 cursor-pointer" src="/img/macbookpro.jpeg" alt="">
+                        <span class="text-xs font-light pl-2 cursor-pointer">Macbook</span>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <img class="cursor-pointer" src="/img/nintendo-switch.jpeg" alt="">
+                        <span class="text-xs font-light pl-2 cursor-pointer">Nintendo Switch</span>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <img class="cursor-pointer relative bottom-3 mb-2" src="/img/iphone-13-pro.jpeg" alt="">
+                        <span class="text-xs font-light pl-2 cursor-pointer relative bottom-3">Iphone 13 Pro</span>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <img class="cursor-pointer mb-2" src="/img/sony-headphones.webp" alt="">
+                        <span class="text-xs font-light pl-2 cursor-pointer">Sony Headphones</span>
+                    </div>
+                </div>
+                <div class="h-1/6"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">See more deals</span></div>
+            </div>
+
+            <div class="bg-white">grid</div>
+
+            <div class=" grid grid-rows-2 gap-1.5">
+                <div class="bg-yellow-200">grid</div>
+                <div class="bg-red-200">grid</div>
+            </div>
+
+            <div class="bg-white">grid</div>
+
+            <div class="bg-white">grid</div>
+
+            <div class="bg-white">grid</div>
+
+            <div class="bg-white">grid</div>
+
+            <div class="col-span-full gap-5 grid grid-cols-4 bg-blue-400">
+                <div class="bg-blue-400">grid</div>
+                <div class="bg-blue-400">grid</div>
+                <div class="bg-blue-400">grid</div>
+                <div class="bg-blue-400">grid</div>
+            </div>
+            
+        </div>
     </main>
 
     <script src="/js/address.js"></script>

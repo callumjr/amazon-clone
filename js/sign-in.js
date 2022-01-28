@@ -2,6 +2,7 @@ class SignIn {
 	emailValidation(value) {
 		if (/^([a-zA-Z0-9_\.\-]+)@([a-zA-Z]+).([a-zA-Z\.]+)$/.test(value)) {
 			this.email = value;
+			window.sessionStorage.setItem('email', this.email);
 
 			window.open('/sign-in-password.html', '_self');
 
@@ -32,6 +33,7 @@ const signIn = new SignIn();
 
 if (window.location.href === 'http://127.0.0.1:5501/sign-in.html#') {
 	document.querySelector('#continue-button').addEventListener('click', e => {
+		e.preventDefault();
 		signIn.emailValidation(document.querySelector('#email-phone-number').value);
 	});
 
@@ -42,5 +44,7 @@ if (window.location.href === 'http://127.0.0.1:5501/sign-in.html#') {
 }
 
 if (window.location.href === 'http://127.0.0.1:5501/sign-in-password.html') {
-	document.querySelector('.email-insert').innerHTML = `<span>${signIn.email}</span>`;
+	document.querySelector('.email-insert').innerHTML = `<span>${window.sessionStorage.getItem('email')}</span>`;
 }
+
+// need to figure out how to keep varibles on page open/refresh
