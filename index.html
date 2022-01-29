@@ -270,48 +270,53 @@
         </nav>
     </header>
 
-    <main class="bg-gray-200 h-screen">
-        <div class="grid-cols-4 gid-rows-3 grid gap-5 mx-8">
-            <div class="bg-white py-2 px-4 flex flex-col space-y-8">
-                <div class="z-20">
-                    <span class="font-semibold text-xl h-1/6">Top Deal</span>
+    <main class="bg-gray-200">
+        <div class="lg:grid-cols-4 lg:gid-rows-3 grid gap-5 mx-8 grid-cols-2 grid-rows-6">
+            <div class="bg-white py-2 px-4 flex flex-col space-y-8 h-full">
+                <div class="z-20 h-1/6">
+                    <span class="font-semibold text-xl ">Top Deal</span>
                 </div>
                 <div class="mb-2 h-4/6">
-                    <img class="" src="/img/macbookpro.jpeg" alt="">
+                    <img class="w-60 relative bottom-8" src="/img/macbookpro.jpeg" alt="">
                     <span class="text-lg">£1800 - £5400</span>
                 </div>
-                <div class="h-1/6"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">See more deals</span></div>
+                <div><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">See more deals</span></div>
             </div>
+            
+            <div class="bg-white">grid</div>
 
-            <div class="bg-white py-2 px-4">
-                <div class="z-20 h-1/6">
+            <div class="bg-white py-2 px-4 h-full flex flex-col space-y-8">
+                <div class="z-20">
                     <span class="font-semibold text-xl">Deals on Devices</span>
                 </div>
-                <div class="mb-2 grid grid-rows-2 grid-cols-2 gap-4 h4/6">
-                    <div class="flex flex-col justify-center">
-                        <img class="w-28 cursor-pointer" src="/img/macbookpro.jpeg" alt="">
+                <div class="grid grid-rows-2 grid-cols-2 lg:gap-4 w-full">
+                    <div class="flex flex-col w-24 h-1/4 mx-auto">
+                        <img class="cursor-pointer" src="/img/macbookpro.jpeg" alt="">
                         <span class="text-xs font-light pl-2 cursor-pointer">Macbook</span>
                     </div>
-                    <div class="flex flex-col justify-center">
+                    <div class="flex flex-col w-24 h-1/4 mx-auto">
                         <img class="cursor-pointer" src="/img/nintendo-switch.jpeg" alt="">
                         <span class="text-xs font-light pl-2 cursor-pointer">Nintendo Switch</span>
                     </div>
-                    <div class="flex flex-col justify-center">
+                    <div class="flex flex-col w-24 h-1/4 mx-auto">
                         <img class="cursor-pointer relative bottom-3 mb-2" src="/img/iphone-13-pro.jpeg" alt="">
                         <span class="text-xs font-light pl-2 cursor-pointer relative bottom-3">Iphone 13 Pro</span>
                     </div>
-                    <div class="flex flex-col justify-center">
+                    <div class="flex flex-col w-24 h-1/4 mx-auto">
                         <img class="cursor-pointer mb-2" src="/img/sony-headphones.webp" alt="">
                         <span class="text-xs font-light pl-2 cursor-pointer">Sony Headphones</span>
                     </div>
                 </div>
-                <div class="h-1/6"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">See more deals</span></div>
+                <div class=""><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">See more deals</span></div>
             </div>
 
-            <div class="bg-white">grid</div>
-
             <div class=" grid grid-rows-2 gap-1.5">
-                <div class="bg-yellow-200">grid</div>
+                <div class="bg-white py-6 px-4 flex flex-col space-y-4">
+                    <span class="font-bold text-2xl">Sign in for your best experience</span>
+                    <div class="bg-yellow-300 flex items-center justify-center rounded-lg w-full h-7  cursor-pointer text-xs hover:bg-yellow-400">
+                        <h3 class="p-4">Sign in securely</h3>
+                    </div>
+                </div>
                 <div class="bg-red-200">grid</div>
             </div>
 
