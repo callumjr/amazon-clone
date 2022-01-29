@@ -147,14 +147,14 @@
                 </div> 
 
                 <!-- country -->
-                <div id="country-container" class="group">
+                <div id="country-container" class="group z-30">
                     <div class="flex items-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 mr-2 p-2 cursor-pointer">
                         <img class="w-6 h-4" src="/img/ukflag1.png" alt="Location">
                         <ion-icon name="arrow-dropdown" class="w-6 text-gray-300 mt-2 text-sm"></ion-icon>
                     </div>
 
                     <!-- country dropdown -->
-                    <div class="bg-slate-50 text-xs w-60 absolute right-54 top-12 hidden group-hover:block">
+                    <div id="country-dropdown" class="bg-slate-50 text-xs w-60 absolute right-54 top-12 hidden group-hover:block z-30">
                         <div class="flex flex-col p-4 space-y-3">
                             <div class="text-left space-x-2">
                                 <span class="text-slate-800">Change Currency</span>
@@ -195,7 +195,7 @@
                     </div>
 
                     <!-- sign in dropdown -->
-                    <div class="bg-slate-50 text-xs w-96 absolute right-48 top-12 hidden group-hover:block">
+                    <div class="bg-slate-50 text-xs w-96 absolute right-48 top-12 hidden group-hover:block z-30">
                         <div class="flex flex-col items-center space-y-3 mt-4 ">
                             <!-- sign in button -->
                             <a href="/sign-in.html"><div class="bg-yellow-300 flex items-center justify-center rounded w-44 h-8 border border-amber-500 cursor-pointer hover:bg-yellow-400 hover:border-amber-500">
@@ -271,8 +271,8 @@
     </header>
 
     <main class="bg-gray-200">
-        <div class="lg:grid-cols-4 lg:gid-rows-3 grid gap-5 mx-8 grid-cols-2 grid-rows-6">
-            <div class="bg-white py-2 px-4 flex flex-col space-y-8 h-full">
+        <div class="lg:grid-cols-4 lg:grid-rows-[2fr_2fr_1fr] grid gap-7 mx-8 grid-rows-[2fr_2fr_2fr_2fr_1fr] grid-cols-2">
+            <div class="bg-white py-2 px-4 flex flex-col space-y-4 h-full">
                 <div class="z-20 h-1/6">
                     <span class="font-semibold text-xl ">Top Deal</span>
                 </div>
@@ -285,48 +285,80 @@
             
             <div class="bg-white">grid</div>
 
-            <div class="bg-white py-2 px-4 h-full flex flex-col space-y-8">
+            <div class="bg-white py-2 px-4 h-full flex flex-col space-y-4">
                 <div class="z-20">
                     <span class="font-semibold text-xl">Deals on Devices</span>
                 </div>
                 <div class="grid grid-rows-2 grid-cols-2 lg:gap-4 w-full">
-                    <div class="flex flex-col w-24 h-1/4 mx-auto">
+                    <div class="flex flex-col lg:w-24 justify-center mx-auto">
                         <img class="cursor-pointer" src="/img/macbookpro.jpeg" alt="">
                         <span class="text-xs font-light pl-2 cursor-pointer">Macbook</span>
                     </div>
-                    <div class="flex flex-col w-24 h-1/4 mx-auto">
-                        <img class="cursor-pointer" src="/img/nintendo-switch.jpeg" alt="">
-                        <span class="text-xs font-light pl-2 cursor-pointer">Nintendo Switch</span>
+                    <div class="flex flex-col lg:w-24 mx-auto justify-center">
+                        <img class="cursor-pointer pt-4" src="/img/nintendo-switch.jpeg" alt="">
+                        <span class="text-xs font-light pl-2 cursor-pointer pt-2">Nintendo Switch</span>
                     </div>
-                    <div class="flex flex-col w-24 h-1/4 mx-auto">
+                    <div class="flex flex-col lg:w-24 mx-auto justify-center">
                         <img class="cursor-pointer relative bottom-3 mb-2" src="/img/iphone-13-pro.jpeg" alt="">
                         <span class="text-xs font-light pl-2 cursor-pointer relative bottom-3">Iphone 13 Pro</span>
                     </div>
-                    <div class="flex flex-col w-24 h-1/4 mx-auto">
+                    <div class="flex flex-col lg:w-24 mx-auto justify-center">
                         <img class="cursor-pointer mb-2" src="/img/sony-headphones.webp" alt="">
-                        <span class="text-xs font-light pl-2 cursor-pointer">Sony Headphones</span>
+                        <span class="text-xs font-light pl-2 cursor-pointer pt-3">Sony Headphones</span>
                     </div>
                 </div>
                 <div class=""><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">See more deals</span></div>
             </div>
 
-            <div class=" grid grid-rows-2 gap-1.5">
-                <div class="bg-white py-6 px-4 flex flex-col space-y-4">
+            <div class="grid grid-rows-2 gap-5">
+                <div class="bg-white py-6 px-4 flex flex-col space-y-2 justify-center">
                     <span class="font-bold text-2xl">Sign in for your best experience</span>
                     <div class="bg-yellow-300 flex items-center justify-center rounded-lg w-full h-7  cursor-pointer text-xs hover:bg-yellow-400">
                         <h3 class="p-4">Sign in securely</h3>
                     </div>
                 </div>
-                <div class="bg-red-200">grid</div>
+                <div class=""><a href="#"><img class="w-10/12 m-auto" src="/img/audible.jpeg" alt=""></a></div>
             </div>
 
-            <div class="bg-white">grid</div>
+            <div class="bg-white py-2 px-4 flex flex-col space-y-2 h-full">
+                <div class="z-20 h-1/6">
+                    <span class="font-semibold text-xl ">Customers' most loved</span>
+                </div>
+                <div class="mb-2 h-4/6">
+                    <img class="h-full" src="/img/clothing.jpg" alt="">
+                </div>
+                <div class="pt-5"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-2">See more deals</span></div>
+            </div>
 
-            <div class="bg-white">grid</div>
+            <div class="bg-white py-2 px-4 flex flex-col space-y-2 h-full">
+                <div class="z-20 h-1/6">
+                    <span class="font-semibold text-xl ">Get £30 off your first order</span>
+                </div>
+                <div class="mb-2 h-4/6">
+                    <img class="h-full" src="/img/man-using-computer.jpg" alt="">
+                </div>
+                <div class="pt-5"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">Create a free business account</span></div>
+            </div>
 
-            <div class="bg-white">grid</div>
+            <div class="bg-white py-2 px-4 flex flex-col space-y-2 h-full">
+                <div class="z-20 h-1/6">
+                    <span class="font-semibold text-xl ">Free delivery on your first order</span>
+                </div>
+                <div class="mb-2 h-4/6">
+                    <img class="h-full" src="/img/truck.jpg" alt="">
+                </div>
+                <div class="pt-5"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">See terms and conditions</span></div>
+            </div>
 
-            <div class="bg-white">grid</div>
+            <div class="bg-white py-2 px-4 flex flex-col space-y-2 h-full">
+                <div class="z-20 h-1/6">
+                    <span class="font-semibold text-xl ">Save on your products with Vouchers</span>
+                </div>
+                <div class="mb-2 h-4/6">
+                    <img class="h-full" src="/img/ooooh.jpg" alt="">
+                </div>
+                <div class="pt-5"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">Discover more</span></div>
+            </div>
 
             <div class="col-span-full gap-5 grid grid-cols-4 bg-blue-400">
                 <div class="bg-blue-400">grid</div>
@@ -339,5 +371,6 @@
     </main>
 
     <script src="/js/address.js"></script>
+    <script src="/js/sign-in-dropdown.js"></script>
 </body>
 </html>

@@ -46,5 +46,3 @@ if (window.location.href === 'http://127.0.0.1:5501/sign-in.html#') {
 if (window.location.href === 'http://127.0.0.1:5501/sign-in-password.html') {
 	document.querySelector('.email-insert').innerHTML = `<span>${window.sessionStorage.getItem('email')}</span>`;
 }
-
-// need to figure out how to keep varibles on page open/refresh
