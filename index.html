@@ -147,7 +147,7 @@
                 </div> 
 
                 <!-- country -->
-                <div id="country-container" class="group z-30">
+                <div id="country-container" class="group">
                     <div class="flex items-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 mr-2 p-2 cursor-pointer">
                         <img class="w-6 h-4" src="/img/ukflag1.png" alt="Location">
                         <ion-icon name="arrow-dropdown" class="w-6 text-gray-300 mt-2 text-sm"></ion-icon>
@@ -181,8 +181,10 @@
                     </div>
                 </div>
 
+                <div class="fixed z-20 opacity-0 top-0 left-0 right-0 bottom-0 overlay-bg pointer-events-none" id="country-overlay"></div>
+
                 <!-- sign in -->
-                <div class="group">
+                <div id="sign-in-container" class="group">
                     <div class="flex flex-col justify-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 cursor-pointer">
                         <div id="sign-in-top">
                             <span class="text-gray-300 text-xs">Hello,</span>
@@ -195,7 +197,7 @@
                     </div>
 
                     <!-- sign in dropdown -->
-                    <div class="bg-slate-50 text-xs w-96 absolute right-48 top-12 hidden group-hover:block z-30">
+                    <div id="sign-in-dropdown" class="bg-slate-50 text-xs w-96 absolute right-48 top-12 hidden group-hover:block z-30">
                         <div class="flex flex-col items-center space-y-3 mt-4 ">
                             <!-- sign in button -->
                             <a href="/sign-in.html"><div class="bg-yellow-300 flex items-center justify-center rounded w-44 h-8 border border-amber-500 cursor-pointer hover:bg-yellow-400 hover:border-amber-500">
@@ -370,7 +372,6 @@
         </div>
     </main>
 
-    <script src="/js/address.js"></script>
-    <script src="/js/sign-in-dropdown.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 </html>
