@@ -90,5 +90,26 @@ document.addEventListener('mouseup', function(e) {
 	}
 });
 
-// three lines - amazon - sign in - cart -
-// search
+class Slider {
+	next(element, size, counter) {
+		console.log(counter);
+		document.querySelector(element).style.transform = `translateX(${-size * counter}px)`;
+	}
+
+	prev(element, size, counter) {}
+}
+
+const slider = new Slider();
+
+let counter = 1;
+let size = document.querySelectorAll('#carousel-slider img')[0].clientWidth;
+
+document.querySelector('#carousel-slider').style.transform = `translateX(${-size * counter}px)`;
+
+document.querySelector('#next').addEventListener('click', () => {
+	counter++;
+	slider.next('#carousel-slider', size, counter);
+});
+
+document.querySelector('#carousel-slide');
+document.querySelectorAll('#carousel-slide img');

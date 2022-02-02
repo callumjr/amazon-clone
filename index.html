@@ -283,6 +283,24 @@
     </header>
 
     <main class="bg-gray-200">
+        <div id="carousel-container" class="mx-auto hidden lg:block">
+            <div id="carousel-slider" class="flex w-full absolute">
+                <img src="/img/carousel-4.jpeg" alt="" id="last-clone">
+                <img src="/img/carousel-1.jpeg" alt="">
+                <img src="/img/carousel-2.jpeg" alt="">
+                <img src="/img/carousel-3.jpeg" alt="">
+                <img src="/img/carousel-4.jpeg" alt="">
+                <img src="/img/carousel-1.jpeg" alt="" id="first-clone">
+            </div>
+        </div>
+
+        <div class="w-full flex justify-between h-80 items-center">
+            <div id="prev" class="cursor-pointer"><ion-icon name="arrow-back-sharp" class="text-white text-3xl"></ion-icon></div>
+            <div id="next" class="cursor-pointer"><ion-icon name="arrow-forward-sharp" class="text-white text-3xl"></ion-icon></div>
+
+        </div>
+
+
         <div class="lg:hidden bg-gray-900 h-14 flex items-center">
             <div id="search-bar-container" class="w-full lg:hidden flex items-center justify-center">
                 <!-- Left Nav -->
@@ -354,7 +372,7 @@
                 </div>
         </div>
 
-        <div class="lg:grid-cols-4 lg:grid-rows-[2fr_2fr_10rem] grid gap-7 mx-8 md:grid-rows-[30rem_30rem_30rem_30rem_10rem] md:grid-cols-[20rem_20rem] grid-rows-[30rem_30rem_30rem_30rem_30rem_30rem_30rem_30rem_10rem] grid-cols-[20rem] relative top-20 justify-center">
+        <div class="lg:grid-cols-4 lg:grid-rows-[2fr_2fr] grid gap-7 mx-8 md:grid-rows-[30rem_30rem_30rem_30rem_10rem] md:grid-cols-[20rem_20rem] grid-rows-[30rem_30rem_30rem_30rem_30rem_30rem_30rem_30rem] grid-cols-[20rem] relative top-40 justify-center">
             <div class="bg-white py-2 px-4 flex flex-col space-y-4">
                 <div class="z-20 h-1/6 flex items-center">
                     <span class="font-semibold text-xl ">Top Deal</span>
@@ -450,17 +468,10 @@
                 </div>
                 <div class="pt-5"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">Discover more</span></div>
             </div>
-
-            <div class="col-span-full gap-5 grid grid-cols-4 bg-blue-400">
-                <div class="bg-blue-400">grid</div>
-                <div class="bg-blue-400">grid</div>
-                <div class="bg-blue-400">grid</div>
-                <div class="bg-blue-400">grid</div>
-            </div>
             
         </div>
 
-        <a href="#nav"><div class="w-full flex items-center bg-slate-700 hover:bg-slate-600 h-10 mt-32">
+        <a href="#nav"><div class="w-full flex items-center bg-slate-700 hover:bg-slate-600 h-10 mt-56">
             <span class="text-white mx-auto">Back to top</span>
         </div></a>
     </main>
