@@ -91,25 +91,33 @@ document.addEventListener('mouseup', function(e) {
 });
 
 class Slider {
-	next(element, size, counter) {
-		console.log(counter);
-		document.querySelector(element).style.transform = `translateX(${-size * counter}px)`;
+	constructor(element, size, counter) {
+		this.element = element;
+		this.size = size;
+		this.counter = counter;
+
+		document.querySelector('#carousel-slider').style.transform = `translateX(${-size * counter}px)`;
+
+		document.querySelector('#carousel-slider').style.transition = 'transform 0.5s ease-in-out';
 	}
 
-	prev(element, size, counter) {}
+	next() {
+		this.counter++;
+		document.querySelector(this.element).style.transform = `translateX(${-this.size * this.counter}px)`;
+	}
+
+	prev() {
+		this.counter--;
+		document.querySelector(this.element).style.transform = `translateX(${-this.size * this.counter}px)`;
+	}
 }
 
-const slider = new Slider();
-
-let counter = 1;
-let size = document.querySelectorAll('#carousel-slider img')[0].clientWidth;
-
-document.querySelector('#carousel-slider').style.transform = `translateX(${-size * counter}px)`;
+const slider = new Slider('#carousel-slider', document.querySelectorAll('#carousel-slider img')[0].clientWidth, 1);
 
 document.querySelector('#next').addEventListener('click', () => {
-	counter++;
-	slider.next('#carousel-slider', size, counter);
+	slider.next();
 });
 
-document.querySelector('#carousel-slide');
-document.querySelectorAll('#carousel-slide img');
+document.querySelector('#prev').addEventListener('click', () => {
+	slider.prev();
+});
