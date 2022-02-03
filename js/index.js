@@ -102,13 +102,70 @@ class Slider {
 	}
 
 	next() {
+		if (this.counter > 4) return;
+
+		if (timer) {
+			clearInterval(timer);
+			timer = setInterval(() => {
+				this.auto();
+			}, 10000);
+		}
+
 		this.counter++;
+
+		document.querySelector('#carousel-slider').style.transition = 'transform 0.5s ease-in-out';
+
 		document.querySelector(this.element).style.transform = `translateX(${-this.size * this.counter}px)`;
 	}
 
 	prev() {
+		if (this.counter < 1) return;
+
+		if (timer) {
+			clearInterval(timer);
+			timer = setInterval(() => {
+				this.auto();
+			}, 10000);
+		}
+
 		this.counter--;
+
+		document.querySelector('#carousel-slider').style.transition = 'transform 0.5s ease-in-out';
+
 		document.querySelector(this.element).style.transform = `translateX(${-this.size * this.counter}px)`;
+
+		if (timer) {
+			clearInterval(timer);
+			timer = setInterval(() => {
+				this.auto();
+			}, 10000);
+		}
+	}
+
+	auto() {
+		this.counter++;
+
+		document.querySelector('#carousel-slider').style.transition = 'transform 0.5s ease-in-out';
+
+		document.querySelector(this.element).style.transform = `translateX(${-this.size * this.counter}px)`;
+	}
+
+	reset() {
+		if (document.querySelectorAll('#carousel-slider img')[this.counter].id === 'last-clone') {
+			document.querySelector('#carousel-slider').style.transition = 'none';
+
+			this.counter = document.querySelectorAll('#carousel-slider img').length - 2;
+
+			document.querySelector(this.element).style.transform = `translateX(${-this.size * this.counter}px)`;
+		}
+
+		if (document.querySelectorAll('#carousel-slider img')[this.counter].id === 'first-clone') {
+			document.querySelector('#carousel-slider').style.transition = 'none';
+
+			this.counter = document.querySelectorAll('#carousel-slider img').length - 5;
+
+			document.querySelector(this.element).style.transform = `translateX(${-this.size * this.counter}px)`;
+		}
 	}
 }
 
@@ -121,3 +178,11 @@ document.querySelector('#next').addEventListener('click', () => {
 document.querySelector('#prev').addEventListener('click', () => {
 	slider.prev();
 });
+
+document.querySelector('#carousel-slider').addEventListener('transitionend', () => {
+	slider.reset();
+});
+
+let timer = setInterval(() => {
+	slider.auto();
+}, 10000);
