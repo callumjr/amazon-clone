@@ -273,33 +273,16 @@
                     </div>
 
                     <!-- cart -->
-                    <a href="/cart-page.html"><div class="border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 mr-2 flex items-center space-x-1 cursor-pointer">
+                    <div class="border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 mr-2 flex items-center space-x-1 cursor-pointer">
                         <ion-icon name="basket-sharp" class="text-white text-4xl md:text-2xl"></ion-icon>
                         <span class="hidden md:block text-white font-bold text-sm mt-2">Basket</span>
-                    </div></a>
+                    </div>
                 </div>
             </nav>
         </nav>
     </header>
 
     <main class="bg-gray-200">
-        <div id="carousel-container" class="mx-auto hidden lg:block">
-            <div id="carousel-slider" class="flex w-full absolute">
-                <img src="/img/carousel-4.jpeg" alt="" id="last-clone" class="">
-                <img src="/img/carousel-1.jpeg" alt="" class="">
-                <img src="/img/carousel-2.jpeg" alt="" class="">
-                <img src="/img/carousel-3.jpeg" alt="" class="">
-                <img src="/img/carousel-4.jpeg" alt="" class="">
-                <img src="/img/carousel-1.jpeg" alt="" id="first-clone" class="">
-            </div>
-        </div>
-
-        <div class="w-full lg:flex justify-between h-80 items-center hidden">
-            <div id="prev" class="cursor-pointer pl-2"><ion-icon name="arrow-back-sharp" class="text-white text-3xl"></ion-icon></div>
-            <div id="next" class="cursor-pointer pr-2"><ion-icon name="arrow-forward-sharp" class="text-white text-3xl"></ion-icon></div>
-
-        </div>
-
         <div class="lg:hidden bg-gray-900 h-14 flex items-center">
             <div id="search-bar-container" class="w-full lg:hidden flex items-center justify-center">
                 <!-- Left Nav -->
@@ -371,236 +354,24 @@
                 </div>
         </div>
 
-        <div class="lg:grid-cols-4 lg:grid-rows-[2fr_2fr] grid gap-7 mx-8 md:grid-rows-[34rem_34rem_34rem_34rem] md:grid-cols-[22rem_22rem] grid-rows-[30rem_30rem_30rem_30rem_30rem_30rem_30rem_30rem] grid-cols-[30rem] lg:relative lg:bottom-20 md:mt-4 justify-center">
-            <div class="bg-white py-2 px-4 flex flex-col space-y-4">
-                <div class="z-20 h-1/6 flex items-center">
-                    <span class="font-semibold text-xl ">Top Deal</span>
-                </div>
-                <div class="mb-2 h-4/6">
-                    <img class="w-64 relative bottom-6 mx-auto" src="/img/macbookpro.jpeg" alt="">
-                    <span class="text-lg">£1800 - £5400</span>
-                </div>
-                <div><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">See more deals</span></div>
-            </div>
+        <div class="w-10/12 p-8 mx-auto">
+            <div class="p-6 flex bg-white">
 
-            <div class="bg-white py-2 px-4 flex flex-col space-y-2 h-full">
-                <div class="z-20 h-1/6 flex items-center">
-                    <span class="font-semibold text-xl ">Customers' most loved</span>
+                <div>
+                    <img src="/img/empty-cart-picture.svg" class="w-80" alt="">
                 </div>
-                <div class="mb-2 h-4/6">
-                    <img class="h-full mx-auto" src="/img/clothing.jpg" alt="">
-                </div>
-                <div class="pt-5"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-2">See more</span></div>
-            </div>
-            
-            <div class="bg-white py-2 px-4 h-full flex flex-col space-y-4">
-                <div class="z-20 flex items-center h-1/6">
-                    <span class="font-semibold text-xl">Deals on Devices</span>
-                </div>
-                <div class="grid grid-rows-2 grid-cols-2 lg:gap-4 w-full h-4/6">
-                    <div class="flex flex-col lg:w-24 md:w-32 sm:w-40 sm:relative sm:bottom-10 justify-center mx-auto">
-                        <img class="cursor-pointer" src="/img/macbookpro.jpeg" alt="">
-                        <span class="text-xs font-light pl-2 cursor-pointer">Macbook</span>
-                    </div>
-                    <div class="flex flex-col lg:w-24 md:w-32 sm:w-40 mx-auto justify-center sm:relative sm:bottom-10">
-                        <img class="cursor-pointer pt-4" src="/img/nintendo-switch.jpeg" alt="">
-                        <span class="text-xs font-light pl-2 cursor-pointer pt-2">Nintendo Switch</span>
-                    </div>
-                    <div class="flex flex-col lg:w-24 md:w-32 sm:w-40 mx-auto justify-center">
-                        <img class="cursor-pointer relative bottom-3 mb-2 sm:w-32" src="/img/iphone-13-pro.jpeg" alt="">
-                        <span class="text-xs font-light pl-2 cursor-pointer relative bottom-3">Iphone 13 Pro</span>
-                    </div>
-                    <div class="flex flex-col lg:w-24 md:w-32 sm:w-40 mx-auto justify-center">
-                        <img class="cursor-pointer lg:mb-2 md:mb-2 sm:w-32" src="/img/sony-headphones.webp" alt="">
-                        <span class="text-xs font-light pl-2 cursor-pointer pt-3">Sony Headphones</span>
+
+                <div class="ml-4 flex flex-col space-y-2">
+                    <h3 class="text-3xl tracking-wide font-semibold">Your basket is empty.</h3>
+                    <a href="/index.html" class="font-light">Would you like to <span class="hover:underline text-blue-500 hover:text-orange-500">continue shopping?</span></a>
+
+                    <div class="w-10/12">
+                        <a href="/sign-in.html"><div class="bg-yellow-300 text-sm flex items-center justify-center rounded w-full h-7 cursor-pointer hover:bg-yellow-400 hover:border-amber-500 mt-2">
+                            <h3 class="py-4 px-10">Sign in to your account</h3>
+                        </div></a>
                     </div>
                 </div>
-                <div class=""><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1 h-1/6">See more deals</span></div>
-            </div>
-            
-            <div class="grid grid-rows-2 gap-5">
-                <div class="bg-white py-6 px-4 flex flex-col space-y-2 justify-center">
-                    <span class="font-bold text-2xl">Sign in for your best experience</span>
-                    <div class="bg-yellow-300 flex items-center justify-center rounded-lg w-full h-7  cursor-pointer text-xs hover:bg-yellow-400">
-                        <h3 class="p-4">Sign in securely</h3>
-                    </div>
-                </div>
-                <div class=""><a href="#"><img class=" mx-auto" src="/img/audible.jpeg" alt=""></a></div>
-            </div>
-            
-            <div class="bg-white py-2 px-4 flex flex-col space-y-2 h-full">
-                <div class="z-20 h-1/6 flex items-center">
-                    <span class="font-semibold text-xl">Learning & Developmental Toys</span>
-                </div>
-                <div class="mb-2 h-4/6">
-                    <img class="h-full mx-auto" src="/img/learning-toys.jpg" alt="">
-                </div>
-                <div class="pt-5"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">Discover the store</span></div>
-            </div>
-
-            <div class="bg-white py-2 px-4 flex flex-col space-y-2 h-full">
-                <div class="z-20 h-1/6 flex items-center">
-                    <span class="font-semibold text-xl">Get £30 off your first order</span>
-                </div>
-                <div class="mb-2 h-4/6">
-                    <img class="h-full mx-auto" src="/img/man-using-computer.jpg" alt="">
-                </div>
-                <div class="pt-5"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">Create a free business account</span></div>
-            </div>
-
-            <div class="bg-white py-2 px-4 flex flex-col space-y-2 h-full">
-                <div class="z-20 h-1/6 flex items-center">
-                    <span class="font-semibold text-xl">Free delivery on your first order</span>
-                </div>
-                <div class="mb-2 h-4/6">
-                    <img class="h-full mx-auto" src="/img/truck.jpg" alt="">
-                </div>
-                <div class="pt-5"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">See terms and conditions</span></div>
-            </div>
-
-            <div class="bg-white py-2 px-4 flex flex-col space-y-2 h-full">
-                <div class="z-20 h-1/6 flex items-center">
-                    <span class="font-semibold text-xl">Save on your products with Vouchers</span>
-                </div>
-                <div class="mb-2 h-4/6">
-                    <img class="h-full mx-auto" src="/img/ooooh.jpg" alt="">
-                </div>
-                <div class="pt-5"><span class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1">Discover more</span></div>
-            </div>
-            
-        </div>
-
-        <div>
-            <h2>Our Best Selling Products</h2>
-        </div>
-
-        <div id="products-container" class="grid lg:grid-cols-4 md:grid-cols-2 gap-4 mx-8 mb-6">
-            <!-- container -->
-            <div class="bg-white py-4 px-4 space-y-6"> 
-                <!-- image -->
-                <div>
-                    <img src="/img/apple-watch.jpeg" alt="" class="w-40 mx-auto">
-                </div>
-
-                <!-- product -->
-                <div>
-                    <h3 class="text-xl">Apple Watch</h3>
-                </div>
-                <!-- reviews -->
-                <div class="flex items-center">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6 mr-2">
-                    <div class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1"><span>&#40;249,000&#41;</span></div>
-                </div>
-
-                <!-- price -->
-                <div>
-                    <h3 class="text-lg">£369.00</h3>
-                </div>
-
-                <!-- cart btn -->
-                <a href=""><div class="p-2 bg-orange-500 hover:bg-orange-600 flex justify-center items-center w-6/12 h-fit rounded-lg mt-2">
-                    <span class="font-semibold text-white text-sm" >Add to cart</span>
-                </div></a>
-
-            </div>
-
-            <div class="bg-white py-2 px-4 space-y-6"> 
-                <!-- image -->
-                <div>
-                    <img src="/img/sony-ps5-console-disc-edition-black-carbon-fiber-series-vinyl-skin-wrap.jpeg" alt="" class="w-40 mx-auto">
-                </div>
-
-                <!-- product -->
-                <div>
-                    <h3 class="text-xl">Playstation 5</h3>
-                </div>
-                <!-- reviews -->
-                <div class="flex items-center">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6 mr-2">
-                    <div class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1"><span>&#40;126,000&#41;</span></div>
-                </div>
-
-                <!-- price -->
-                <div>
-                    <h3 class="text-lg">£495.00</h3>
-                </div>
-
-                <!-- cart btn -->
-                <a href=""><div class="p-2 bg-orange-500 hover:bg-orange-600 flex justify-center items-center w-6/12 h-fit rounded-lg mt-2">
-                    <span class="font-semibold text-white text-sm" >Add to cart</span>
-                </div></a>
-
-            </div>
-
-            <div class="bg-white py-2 px-4 space-y-6"> 
-                <!-- image -->
-                <div>
-                    <img src="/img/book-cover.jpeg" alt="" class="w-40 mx-auto">
-                </div>
-
-                <!-- product -->
-                <div>
-                    <h3 class="text-lg">Beautiful world, where are you <br><span class="text-sm">Sally Rooney</span></h3>
-                </div>
-                <!-- reviews -->
-                <div class="flex relative bottom-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6 mr-2">
-                    <div class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1"><span>&#40;38,000&#41;</span></div>
-                </div>
-
-                <!-- price -->
-                <div>
-                    <h3 class="text-lg relative bottom-7">£8.99</h3>
-                </div>
-
-                <!-- cart btn -->
-                <a href=""><div class="p-2 bg-orange-500 hover:bg-orange-600 flex justify-center items-center w-6/12 h-fit rounded-lg relative bottom-7 mt-2">
-                    <span class="font-semibold text-white text-sm" >Add to cart</span>
-                </div></a>
-
-            </div>
-
-            <div class="bg-white py-2 px-4 space-y-6"> 
-                <!-- image -->
-                <div>
-                    <img src="/img/kindle.jpeg" alt="" class="w-40 mx-auto">
-                </div>
-
-                <!-- product -->
-                <div>
-                    <h3 class="text-lg">Kindle Paperwhite</h3>
-                </div>
-                <!-- reviews -->
-                <div class="flex">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6">
-                    <img src="/img/Gold_Star.svg.png" alt="" class="w-6 mr-2">
-                    <div class="text-xs hover:underline text-blue-500 hover:text-orange-500 cursor-pointer pt-1"><span>&#40;133,000&#41;</span></div>
-                </div>
-
-                <!-- price -->
-                <div>
-                    <h3 class="text-lg">£100.000</h3>
-                </div>
-
-                <!-- cart btn -->
-                <a href=""><div class="p-2 bg-orange-500 hover:bg-orange-600 flex justify-center items-center w-6/12 h-fit rounded-lg mt-2">
-                    <span class="font-semibold text-white text-sm" >Add to cart</span>
-                </div></a>
-
+                
             </div>
         </div>
 
