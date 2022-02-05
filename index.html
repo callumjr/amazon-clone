@@ -274,6 +274,7 @@
 
                     <!-- cart -->
                     <a href="/cart-page.html"><div class="border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 mr-2 flex items-center space-x-1 cursor-pointer">
+                        <span id="cart-items" class="relative left-1 z-10 text-xl pt-1 text-orange-400 font-bold"></span>
                         <ion-icon name="basket-sharp" class="text-white text-4xl md:text-2xl"></ion-icon>
                         <span class="hidden md:block text-white font-bold text-sm mt-2">Basket</span>
                     </div></a>
@@ -479,12 +480,12 @@
             <div class="bg-white py-4 px-4 space-y-6"> 
                 <!-- image -->
                 <div>
-                    <img src="/img/apple-watch.jpeg" alt="" class="w-40 mx-auto">
+                    <img id="product-img" src="/img/apple-watch.jpeg" alt="" class="w-40 mx-auto">
                 </div>
 
                 <!-- product -->
                 <div>
-                    <h3 class="text-xl">Apple Watch</h3>
+                    <h3 id="product-name" class="text-xl">Apple Watch</h3>
                 </div>
                 <!-- reviews -->
                 <div class="flex items-center">
@@ -498,11 +499,11 @@
 
                 <!-- price -->
                 <div>
-                    <h3 class="text-lg">£369.00</h3>
+                    <h3 id="product-price" class="text-lg">£369.00</h3>
                 </div>
 
                 <!-- cart btn -->
-                <a href=""><div class="p-2 bg-orange-500 hover:bg-orange-600 flex justify-center items-center w-6/12 h-fit rounded-lg mt-2">
+                <a href="#" id="cart-btn"><div class="p-2 bg-orange-500 hover:bg-orange-600 flex justify-center items-center w-6/12 h-fit rounded-lg mt-2">
                     <span class="font-semibold text-white text-sm" >Add to cart</span>
                 </div></a>
 
@@ -511,12 +512,12 @@
             <div class="bg-white py-2 px-4 space-y-6"> 
                 <!-- image -->
                 <div>
-                    <img src="/img/sony-ps5-console-disc-edition-black-carbon-fiber-series-vinyl-skin-wrap.jpeg" alt="" class="w-40 mx-auto">
+                    <img id="product-img" src="/img/sony-ps5-console-disc-edition-black-carbon-fiber-series-vinyl-skin-wrap.jpeg" alt="" class="w-40 mx-auto">
                 </div>
 
                 <!-- product -->
                 <div>
-                    <h3 class="text-xl">Playstation 5</h3>
+                    <h3 id="product-name" class="text-xl">Playstation 5</h3>
                 </div>
                 <!-- reviews -->
                 <div class="flex items-center">
@@ -530,11 +531,11 @@
 
                 <!-- price -->
                 <div>
-                    <h3 class="text-lg">£495.00</h3>
+                    <h3 id="product-price" class="text-lg">£495.00</h3>
                 </div>
 
                 <!-- cart btn -->
-                <a href=""><div class="p-2 bg-orange-500 hover:bg-orange-600 flex justify-center items-center w-6/12 h-fit rounded-lg mt-2">
+                <a href="#" id="cart-btn"><div class="p-2 bg-orange-500 hover:bg-orange-600 flex justify-center items-center w-6/12 h-fit rounded-lg mt-2">
                     <span class="font-semibold text-white text-sm" >Add to cart</span>
                 </div></a>
 
@@ -543,12 +544,13 @@
             <div class="bg-white py-2 px-4 space-y-6"> 
                 <!-- image -->
                 <div>
-                    <img src="/img/book-cover.jpeg" alt="" class="w-40 mx-auto">
+                    <img id="product-img" src="/img/book-cover.jpeg" alt="" class="w-40 mx-auto">
                 </div>
 
                 <!-- product -->
                 <div>
-                    <h3 class="text-lg">Beautiful world, where are you <br><span class="text-sm">Sally Rooney</span></h3>
+                    <h3 id="product-name" class="text-lg">Beautiful world, where are you</h3>
+                    <span class="text-sm">Sally Rooney</span>
                 </div>
                 <!-- reviews -->
                 <div class="flex relative bottom-6">
@@ -561,11 +563,11 @@
 
                 <!-- price -->
                 <div>
-                    <h3 class="text-lg relative bottom-7">£8.99</h3>
+                    <h3 id="product-price" class="text-lg relative bottom-7">£8.99</h3>
                 </div>
 
                 <!-- cart btn -->
-                <a href=""><div class="p-2 bg-orange-500 hover:bg-orange-600 flex justify-center items-center w-6/12 h-fit rounded-lg relative bottom-7 mt-2">
+                <a href="#" id="cart-btn"><div class="p-2 bg-orange-500 hover:bg-orange-600 flex justify-center items-center w-6/12 h-fit rounded-lg relative bottom-7 mt-2">
                     <span class="font-semibold text-white text-sm" >Add to cart</span>
                 </div></a>
 
@@ -574,12 +576,12 @@
             <div class="bg-white py-2 px-4 space-y-6"> 
                 <!-- image -->
                 <div>
-                    <img src="/img/kindle.jpeg" alt="" class="w-40 mx-auto">
+                    <img id="product-img" src="/img/kindle.jpeg" alt="" class="w-40 mx-auto">
                 </div>
 
                 <!-- product -->
                 <div>
-                    <h3 class="text-lg">Kindle Paperwhite</h3>
+                    <h3 id="product-name" class="text-lg">Kindle Paperwhite</h3>
                 </div>
                 <!-- reviews -->
                 <div class="flex">
@@ -593,11 +595,11 @@
 
                 <!-- price -->
                 <div>
-                    <h3 class="text-lg">£100.000</h3>
+                    <h3 id="product-price" class="text-lg">£100.000</h3>
                 </div>
 
                 <!-- cart btn -->
-                <a href=""><div class="p-2 bg-orange-500 hover:bg-orange-600 flex justify-center items-center w-6/12 h-fit rounded-lg mt-2">
+                <a href="#" id="cart-btn"><div class="p-2 bg-orange-500 hover:bg-orange-600 flex justify-center items-center w-6/12 h-fit rounded-lg mt-2">
                     <span class="font-semibold text-white text-sm" >Add to cart</span>
                 </div></a>
 
@@ -863,5 +865,6 @@
     </footer>
 
     <script src="/js/index.js"></script>
+    <script src="/js/cart.js"></script>
 </body>
 </html>
