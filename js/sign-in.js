@@ -31,10 +31,25 @@ class SignIn {
 
 const signIn = new SignIn();
 
-if (window.location.href === 'http://127.0.0.1:5501/sign-in.html#') {
+if (
+	window.location.href === 'http://127.0.0.1:5501/sign-in.html#' ||
+	window.location.href === 'http://127.0.0.1:5501/sign-in.html?#'
+) {
 	document.querySelector('#continue-button').addEventListener('click', e => {
 		e.preventDefault();
 		signIn.emailValidation(document.querySelector('#email-phone-number').value);
+	});
+
+	document.querySelector('#continue-button').addEventListener('click', e => {
+		e.preventDefault();
+		signIn.emailValidation(document.querySelector('#email-phone-number').value);
+	});
+
+	document.addEventListener('keydown', e => {
+		e.preventDefault();
+		if (e.key === 'Enter') {
+			signIn.emailValidation(document.querySelector('#email-phone-number').value);
+		}
 	});
 
 	document.querySelector('#help-button').addEventListener('click', e => {
