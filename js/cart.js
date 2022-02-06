@@ -1,6 +1,6 @@
 class buildCart {
 	constructor() {
-		this.cart = [];
+		this.cart = JSON.parse(window.localStorage.getItem('cart'));
 	}
 
 	addToCart(element) {
@@ -9,8 +9,7 @@ class buildCart {
 			image : element.querySelector('#product-img').getAttribute('src'),
 			price : element.querySelector('#product-price').textContent
 		});
-
-		window.localStorage.setItem('cart', this.cart);
+		window.localStorage.setItem('cart', JSON.stringify(this.cart));
 	}
 }
 
@@ -22,9 +21,12 @@ document.querySelectorAll('#cart-btn').forEach(v => {
 	});
 });
 
-// need to create page for cart object
-if (window.localStorage.getItem('cart')) {
-	document.querySelector('#cart-items').innerHTML = `${window.localStorage.getItem('cart').length}`;
-}
+console.log(JSON.parse(window.localStorage.getItem('cart')));
 
-console.log(window.localStorage.getItem('cart'));
+////////////////////////////////////////////////////////
+
+// if (window.localStorage.getItem('cart')) {
+// 	let jsonCart = window.localStorage.getItem('cart');
+
+// 	document.querySelector('#cart-items').innerHTML = `${JSON.parse(jsonCart).length}`;
+// }
