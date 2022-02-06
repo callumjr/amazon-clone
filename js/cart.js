@@ -25,8 +25,10 @@ console.log(JSON.parse(window.localStorage.getItem('cart')));
 
 ////////////////////////////////////////////////////////
 
-// if (window.localStorage.getItem('cart')) {
-// 	let jsonCart = window.localStorage.getItem('cart');
+if (window.localStorage.getItem('cart')) {
+	document.querySelector('#cart-items').innerHTML = `${JSON.parse(window.localStorage.getItem('cart')).length}`;
+}
 
-// 	document.querySelector('#cart-items').innerHTML = `${JSON.parse(jsonCart).length}`;
-// }
+class CartPage {
+	constructor() {}
+}
