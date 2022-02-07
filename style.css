@@ -1,6 +1,5 @@
 @media screen and (max-width: 1240px) {
 	#nav-container > * {
-		width: fit-content;
 	}
 
 	#search-bar-container > * {
