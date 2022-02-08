@@ -35,10 +35,29 @@ class CartPage {
 			let cartArr = JSON.parse(window.localStorage.getItem('cart'));
 
 			for (let i = 0; i < cartArr.length; i++) {
-				document.querySelector('#cart-items').innerHTML += ``;
+				document.querySelector('#cart-page').innerHTML += `
+				<div class="p-5 bg-white w-8/12 rounded-lg mx-auto" >
+					<div>
+						<img src="${cartArr[i].image}" alt="" class="w-40">
+					</div>
+
+					<div>
+						<h3 class="text-xl">${cartArr[i].name}</h3>
+					</div>
+
+					<div>
+						<h3 id="product-price" class="text-lg">${cartArr[i].price}</h3>
+					</div>
+				</div>`;
 			}
+
+			document.querySelector('#cart-page').classList.add(`grid-cols-${cartArr.length}`);
 		} else {
 			document.querySelector('#no-cart-items').classList.remove('hidden');
 		}
 	}
 }
+
+const cartPage = new CartPage();
+
+cartPage.cartHtml();
