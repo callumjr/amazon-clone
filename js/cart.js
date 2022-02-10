@@ -33,11 +33,13 @@ class buildCart {
 				window.localStorage.setItem(
 					'cart',
 					JSON.stringify(
-						cart.filter(v => {
-							return v.name !== clickedName;
+						this.cart.filter(v => {
+							return v.name !== name;
 						})
 					)
 				);
+
+				return;
 			}
 		}
 	}
@@ -58,33 +60,28 @@ document.querySelectorAll('#cart-btn').forEach(v => {
 if (window.localStorage.getItem('cart')) {
 	let cart = JSON.parse(window.localStorage.getItem('cart'));
 
-	document.querySelector('#cart-items').innerHTML = `${cart
-		.map(v => {
-			return v.quantity;
-		})
-		.reduce((a, b) => {
-			return a + b;
-		}, 0)}`;
+	if (cart.length > 0) {
+		document.querySelector('#cart-items').innerHTML = `${cart
+			.map(v => {
+				return v.quantity;
+			})
+			.reduce((a, b) => {
+				return a + b;
+			}, 0)}`;
+	}
 }
 
-if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
-	document.querySelectorAll('#cart-delete-btn').forEach(v => {
-		v.addEventListener('click', e => {
-			cart.removeFromCart(e.path[3].children[0].children[0].textContent);
-			window.location.reload();
-		});
-	});
-
-	// document.querySelector('#cart-deselect').addEventListener('click', e => {
-	// 	console.log(e);
-	// });
-}
+// if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
+// 	document.querySelector('#cart-deselect').addEventListener('click', e => {
+// 		console.log(e);
+// 	});
+// }
 
 class CartPage {
 	constructor() {}
 
 	cartHtml() {
-		if (window.localStorage.getItem('cart')) {
+		if (JSON.parse(window.localStorage.getItem('cart')).length > 0) {
 			document.querySelector('#cart-page').classList.remove('hidden');
 
 			let cartArr = JSON.parse(window.localStorage.getItem('cart'));
@@ -110,7 +107,7 @@ class CartPage {
 						</div>
 
 						<div class="flex items-center space-x-6">
-							<div class="flex hover:cursor-pointer rounded-lg border border-gray-200 p-2 w-2/12 justify-between shadow-md">
+							<div class="flex hover:cursor-pointer rounded-lg border border-gray-200 p-2 w-2/12 sm:w-4/12 justify-between shadow-md">
 								<span class="text-sm mr-1">Qty:</span>
 								<span class="text-sm mr-1">${cartArr[i].quantity}</span>
 								<ion-icon name="caret-down-sharp" class="text-gray-600 text-sm pt-1"></ion-icon>
@@ -124,7 +121,6 @@ class CartPage {
 								<span class="text-xs text-blue-600 hover:underline hover:cursor-pointer">Save for later</span>
 							</div>
 						</div>
-
 					</div>
 
 					<div class="w-3/12 flex justify-end">
@@ -132,8 +128,6 @@ class CartPage {
 					</div>
 				</div>`;
 			}
-
-			document.querySelector('#cart-page').classList.add(`grid-cols-${cartArr.length}`);
 		} else {
 			document.querySelector('#cart-page').classList.add('hidden');
 			document.querySelector('#no-cart-items').classList.remove('hidden');
@@ -146,6 +140,14 @@ const cartPage = new CartPage();
 if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
 	document.addEventListener('DOMContentLoaded', () => {
 		cartPage.cartHtml();
+
+		document.querySelectorAll('#cart-delete-btn').forEach(v => {
+			v.addEventListener('click', e => {
+				cart.removeFromCart(e.path[3].children[0].children[0].textContent);
+
+				window.location.reload();
+			});
+		});
 	});
 }
 

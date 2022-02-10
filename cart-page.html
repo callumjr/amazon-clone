@@ -189,7 +189,7 @@
 
                     <!-- sign in -->
                     <div id="sign-in-container" class="group">
-                        <div class="hidden md:flex flex-col justify-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 cursor-pointer">
+                        <div class="relative right-3 hidden md:flex flex-col justify-center border border-transparent hover:border-white hover:delay-75 rounded-sm h-12 p-2 cursor-pointer">
                             <div id="sign-in-top">
                                 <span class="text-gray-300 text-xs">Hello,</span>
                                 <span class="text-gray-300 text-xs">Sign in</span>
@@ -365,28 +365,26 @@
                         <span id="cart-deselect" class="text-sm text-blue-600 hover:underline hover:cursor-pointer">Deselect all items</span>
                     </div>
                 </div>
-    
+
                 <div class="flex justify-end">
                     <span class="text-md text-gray-600 ">Price</span>
                 </div>
             </div>
-
-            
         </div>
 
         <div id="no-cart-items" class="w-10/12 p-8 mx-auto hidden">
             <div class="p-6 flex bg-white">
 
                 <div>
-                    <img src="/img/empty-cart-picture.svg" class="w-80" alt="">
+                    <img src="/img/empty-cart-picture.svg" class="w-80 md:block sm:block hidden" alt="">
                 </div>
 
                 <div class="ml-4 flex flex-col space-y-2">
-                    <h3 class="text-3xl tracking-wide font-semibold">Your basket is empty.</h3>
+                    <h3 class="lg:text-3xl text-2xl tracking-wide font-semibold">Your basket is empty.</h3>
                     <a href="/index.html" class="font-light">Would you like to <span class="hover:underline text-blue-500 hover:text-orange-500">continue shopping?</span></a>
 
                     <div class="w-10/12">
-                        <a href="/sign-in.html"><div class="bg-yellow-300 text-sm flex items-center justify-center rounded w-full h-7 cursor-pointer hover:bg-yellow-400 hover:border-amber-500 mt-2">
+                        <a href="/sign-in.html"><div class="bg-yellow-300 text-sm flex items-center justify-center rounded lg:w-80 sm:w-80 w-60 h-7 cursor-pointer hover:bg-yellow-400 hover:border-amber-500 mt-2">
                             <h3 class="py-4 px-10">Sign in to your account</h3>
                         </div></a>
                     </div>
