@@ -46,7 +46,7 @@ document.querySelector('#sign-in-container').addEventListener('mouseover', e => 
 	dropDownMenu.show('#country-overlay');
 });
 
-document.addEventListener('mouseout', function(e) {
+document.addEventListener('mouseup', function(e) {
 	if (!document.querySelector('#sign-in-dropdown').contains(e.target)) {
 		dropDownMenu.hide('#country-overlay');
 	}
