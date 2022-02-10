@@ -71,20 +71,24 @@ if (window.localStorage.getItem('cart')) {
 	}
 }
 
-// if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
-// 	document.querySelector('#cart-deselect').addEventListener('click', e => {
-// 		console.log(e);
-// 	});
-// }
+function deleteCart() {
+	cart.clearCart();
+
+	window.location.reload();
+}
 
 class CartPage {
 	constructor() {}
 
 	cartHtml() {
-		if (JSON.parse(window.localStorage.getItem('cart')).length > 0) {
-			document.querySelector('#cart-page').classList.remove('hidden');
-
+		if (
+			JSON.parse(window.localStorage.getItem('cart')) &&
+			JSON.parse(window.localStorage.getItem('cart')).length > 0
+		) {
 			let cartArr = JSON.parse(window.localStorage.getItem('cart'));
+
+			document.querySelector('#cart-page').classList.remove('hidden');
+			document.querySelector('#order-info').classList.remove('hidden');
 
 			for (let i = 0; i < cartArr.length; i++) {
 				document.querySelector('#cart-page').innerHTML += `
@@ -127,9 +131,24 @@ class CartPage {
 						<h3 id="product-price" class="text-lg font-semibold">${cartArr[i].price}</h3>
 					</div>
 				</div>`;
+
+				document.querySelector(
+					'#cart-total'
+				).innerHTML = `<span class="text-lg text-gray-800 pl-6">Subtotal ${cartArr.length} item(s): </span>
+				
+				<span class="text-lg font-semibold text-gray-800">£${cartArr
+					.map(v => {
+						return parseFloat(v.price.slice(1));
+					})
+					.reduce((a, b) => {
+						return a + b;
+					}, 0)
+					.toFixed(2)}</span>
+				`;
 			}
 		} else {
 			document.querySelector('#cart-page').classList.add('hidden');
+			document.querySelector('#order-info').classList.add('hidden');
 			document.querySelector('#no-cart-items').classList.remove('hidden');
 		}
 	}
@@ -150,5 +169,3 @@ if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
 		});
 	});
 }
-
-// window.localStorage.clear('cart');

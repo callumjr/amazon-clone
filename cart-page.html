@@ -355,19 +355,47 @@
                 </div>
         </div>
 
-        <div id="cart-page" class="w-8/12 p-4 bg-white flex flex-col hidden">
-            <div class="border-b border-slate-300">
-                <div class="flex flex-col space-y-4">
-                    <div class="">
-                        <h2 class="text-3xl font-light">Shopping Basket</h2>
+        <div class="flex">
+            <div id="cart-page" class="w-8/12 p-4 bg-white flex flex-col hidden">
+                <div class="border-b border-slate-300">
+                    <div class="flex flex-col space-y-4">
+                        <div class="">
+                            <h2 class="text-3xl font-light">Shopping Basket</h2>
+                        </div>
+                        <div>
+                            <span onclick="deleteCart()" id="cart-deselect" class="text-sm text-blue-600 hover:underline hover:cursor-pointer">Deselect all items</span>
+                        </div>
                     </div>
-                    <div>
-                        <span id="cart-deselect" class="text-sm text-blue-600 hover:underline hover:cursor-pointer">Deselect all items</span>
+
+                    <div class="flex justify-end">
+                        <span class="text-md text-gray-600 ">Price</span>
                     </div>
                 </div>
+            </div>
 
-                <div class="flex justify-end">
-                    <span class="text-md text-gray-600 ">Price</span>
+            <div id="order-info" class="p-6 w-4/12 h-full">
+                <div class=" bg-white p-4 rounded-lg space-y-4">
+                    <div>
+                        <div class="flex items-center space-x-1">
+                            <ion-icon class="text-xl text-green-600" name="checkmark-circle"></ion-icon>
+                            <span class="text-green-600">Your order qualifies for free delivery in the UK</span>
+                        </div>
+
+                        <div>
+                            <span class="text-xs text-gray-600 pl-6">Select this option at checkout</span>
+                        </div>
+                    </div>
+
+                    <div id="cart-total">
+                        
+                    </div>
+
+                    <div>
+                        <a href=""><div class="bg-yellow-300 text-sm flex items-center justify-center rounded w-10/12 h-7 cursor-pointer hover:bg-yellow-400 hover:border-amber-500 mx-auto">
+                            <h3 class="py-4 px-10">Proceed to checkout</h3>
+                        </div></a>
+                    </div>
+
                 </div>
             </div>
         </div>
