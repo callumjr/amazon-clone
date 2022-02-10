@@ -86,7 +86,7 @@
                     <div class="bg-slate-200 rounded-sm flex items-center hover:bg-slate-300 w-12 p-2 hover:cursor-pointer border-r border-neutral-500 h-10 relative left-0.5">
                         <div class="flex hover:cursor-pointer">
                             <span class="text-xs">All</span>
-                            <ion-icon name="arrow-dropdown" class="w-6"></ion-icon>
+                            <ion-icon name="caret-down-sharp" class="text-gray-700 text-xs pt-0.5"></ion-icon>
                         </div>
 
                         <select name="" id="" class="relative right-10 opacity-0 hover:cursor-pointer absolute z-10 h-10">
@@ -290,7 +290,7 @@
                 <div class="bg-slate-200 rounded-sm flex items-center hover:bg-slate-300 w-12 p-2 hover:cursor-pointer border-r border-neutral-500 h-10 relative left-0.5">
                     <div class="flex hover:cursor-pointer">
                         <span class="text-xs">All</span>
-                        <ion-icon name="arrow-dropdown" class="w-6"></ion-icon>
+                        <ion-icon name="caret-down-sharp" class="text-gray-700 text-xs pt-0.5"></ion-icon>
                     </div>
 
                     <select name="" id="" class="relative right-10 opacity-0 hover:cursor-pointer absolute z-10 h-10">
@@ -355,7 +355,21 @@
                 </div>
         </div>
 
-        <div id="cart-page" class="grid w-full">
+        <div id="cart-page" class="w-8/12 p-4 bg-white flex flex-col">
+            <div class="border-b border-slate-300">
+                <div class="flex flex-col space-y-4">
+                    <div class="">
+                        <h2 class="text-3xl font-light">Shopping Basket</h2>
+                    </div>
+                    <span class="text-sm text-blue-600 hover:underline hover:cursor-pointer">Deselect all items</span>
+                </div>
+    
+                <div class="flex justify-end">
+                    <span class="text-md text-gray-600 ">Price</span>
+                </div>
+            </div>
+
+            
         </div>
 
         <div id="no-cart-items" class="w-10/12 p-8 mx-auto hidden">
