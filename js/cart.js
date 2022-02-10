@@ -27,7 +27,24 @@ class buildCart {
 		window.localStorage.setItem('cart', JSON.stringify(this.cart));
 	}
 
-	removeFromCart(element) {}
+	removeFromCart(name) {
+		for (let i = 0; i < this.cart.length; i++) {
+			if (name === this.cart[i].name) {
+				window.localStorage.setItem(
+					'cart',
+					JSON.stringify(
+						cart.filter(v => {
+							return v.name !== clickedName;
+						})
+					)
+				);
+			}
+		}
+	}
+
+	clearCart() {
+		window.localStorage.clear('cart');
+	}
 }
 
 const cart = new buildCart();
@@ -48,6 +65,19 @@ if (window.localStorage.getItem('cart')) {
 		.reduce((a, b) => {
 			return a + b;
 		}, 0)}`;
+}
+
+if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
+	document.querySelectorAll('#cart-delete-btn').forEach(v => {
+		v.addEventListener('click', e => {
+			cart.removeFromCart(e.path[3].children[0].children[0].textContent);
+			window.location.reload();
+		});
+	});
+
+	// document.querySelector('#cart-deselect').addEventListener('click', e => {
+	// 	console.log(e);
+	// });
 }
 
 class CartPage {
@@ -116,12 +146,6 @@ const cartPage = new CartPage();
 if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
 	document.addEventListener('DOMContentLoaded', () => {
 		cartPage.cartHtml();
-
-		// document.querySelectorAll('#cart-delete-btn').forEach(v => {
-		// 	v.addEventListener('click', e => {
-		// 		console.log(v.parentElement.parentElement.parentElement.parentElement);
-		// 	});
-		// }); DELETE FUNCTION
 	});
 }
 
