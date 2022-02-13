@@ -1,3 +1,12 @@
+const invalidEmailNotice = document.querySelector('#invalid-email');
+const helpIconRight = document.querySelector('#help-icon-right');
+const helpIconDown = document.querySelector('#help-icon-down');
+const helpExtras = document.querySelector('.help-extras');
+const continueButton = document.querySelector('#continue-button');
+const emailBox = document.querySelector('#email-phone-number');
+const helpButton = document.querySelector('#help-button');
+const emailInsert = document.querySelector('.email-insert');
+
 class SignIn {
 	emailValidation(value) {
 		if (/^([a-zA-Z0-9_\.\-]+)@([a-zA-Z]+).([a-zA-Z\.]+)$/.test(value)) {
@@ -6,26 +15,26 @@ class SignIn {
 
 			window.open('/sign-in-password.html', '_self');
 
-			if (!document.querySelector('#invalid-email').classList.contains('hidden')) {
-				document.querySelector('#invalid-email').classList.add('hidden');
+			if (!invalidEmailNotice.classList.contains('hidden')) {
+				invalidEmailNotice.classList.add('hidden');
 			}
 		} else if (/^\d{11}$/.test(value)) {
 			this.number = value;
 
 			window.open('/sign-in-password.html', '_self');
 
-			if (!document.querySelector('#invalid-email').classList.contains('hidden')) {
-				document.querySelector('#invalid-email').classList.add('hidden');
+			if (!invalidEmailNotice.classList.contains('hidden')) {
+				invalidEmailNotice.classList.add('hidden');
 			}
 		} else {
-			document.querySelector('#invalid-email').classList.remove('hidden');
+			invalidEmailNotice.classList.remove('hidden');
 		}
 	}
 
 	helpDropdown() {
-		document.querySelector('#help-icon-right').classList.toggle('hidden');
-		document.querySelector('#help-icon-down').classList.toggle('hidden');
-		document.querySelector('.help-extras').classList.toggle('hidden');
+		helpIconRight.classList.toggle('hidden');
+		helpIconDown.classList.toggle('hidden');
+		helpExtras.classList.toggle('hidden');
 	}
 }
 
@@ -35,29 +44,29 @@ if (
 	window.location.href === 'http://127.0.0.1:5501/sign-in.html#' ||
 	window.location.href === 'http://127.0.0.1:5501/sign-in.html?#'
 ) {
-	document.querySelector('#continue-button').addEventListener('click', e => {
+	continueButton.addEventListener('click', e => {
 		e.preventDefault();
-		signIn.emailValidation(document.querySelector('#email-phone-number').value);
+		signIn.emailValidation(emailBox.value);
 	});
 
-	document.querySelector('#continue-button').addEventListener('click', e => {
+	continueButton.addEventListener('click', e => {
 		e.preventDefault();
-		signIn.emailValidation(document.querySelector('#email-phone-number').value);
+		signIn.emailValidation(emailBox.value);
 	});
 
 	document.addEventListener('keydown', e => {
 		e.preventDefault();
 		if (e.key === 'Enter') {
-			signIn.emailValidation(document.querySelector('#email-phone-number').value);
+			signIn.emailValidation(emailBox.value);
 		}
 	});
 
-	document.querySelector('#help-button').addEventListener('click', e => {
+	helpButton.addEventListener('click', e => {
 		e.preventDefault();
 		signIn.helpDropdown();
 	});
 }
 
 if (window.location.href === 'http://127.0.0.1:5501/sign-in-password.html') {
-	document.querySelector('.email-insert').innerHTML = `<span>${window.sessionStorage.getItem('email')}</span>`;
+	emailInsert.innerHTML = `<span>${window.sessionStorage.getItem('email')}</span>`;
 }
