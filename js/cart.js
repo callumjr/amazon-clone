@@ -1,4 +1,14 @@
-class buildCart {
+const addToCartButton = document.querySelectorAll('#cart-btn');
+const deleteFromCartButton = document.querySelectorAll('#cart-delete-btn');
+const cartItemsNumber = document.querySelector('#cart-items');
+const cartContainer = document.querySelector('#cart-page');
+const cartTotal = document.querySelector('#cart-total');
+const orderInfo = document.querySelector('#order-info');
+const noCartItems = document.querySelector('#no-cart-items');
+const quantityContainer = document.querySelectorAll('#quantity-element');
+const quantityElement = document.querySelectorAll('#quantity-menu-item');
+
+class BuildCart {
 	constructor() {
 		if (window.localStorage.getItem('cart')) {
 			this.cart = JSON.parse(window.localStorage.getItem('cart'));
@@ -49,11 +59,11 @@ class buildCart {
 	}
 }
 
-const cart = new buildCart();
+const buildCart = new BuildCart();
 
-document.querySelectorAll('#cart-btn').forEach(v => {
+addToCartButton.forEach(v => {
 	v.addEventListener('click', e => {
-		cart.addToCart(v.parentElement);
+		buildCart.addToCart(v.parentElement);
 	});
 });
 
@@ -61,7 +71,7 @@ if (window.localStorage.getItem('cart')) {
 	let cart = JSON.parse(window.localStorage.getItem('cart'));
 
 	if (cart.length > 0) {
-		document.querySelector('#cart-items').innerHTML = `${cart
+		cartItemsNumber.innerHTML = `${cart
 			.map(v => {
 				return v.quantity;
 			})
@@ -72,7 +82,7 @@ if (window.localStorage.getItem('cart')) {
 }
 
 function deleteCart() {
-	cart.clearCart();
+	buildCart.clearCart();
 	window.location.reload();
 }
 
@@ -87,7 +97,7 @@ class CartPage {
 			let cartArr = JSON.parse(window.localStorage.getItem('cart'));
 
 			for (let i = 0; i < cartArr.length; i++) {
-				document.querySelector('#cart-page').innerHTML += `
+				cartContainer.innerHTML += `
 				<div class="p-4 w-full bg-white flex justify-between border-b border-slate-300">
 					<div class="w-3/12">
 						<img src="${cartArr[i].image}" alt="" class="w-40">
@@ -112,15 +122,23 @@ class CartPage {
 
 								<div id="quantity-menu" class="w-full z-10 h-48 bg-white absolute top-10 left-0 rounded-lg flex flex-col overflow-y-scroll hidden">
 								
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">1</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">2</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">3</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">4</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">5</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">6</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">7</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">8</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">9</div>
+									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">1</div>
+
+									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">2</div>
+
+									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">3</div>
+
+									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">4</div>
+
+									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">5</div>
+
+									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">6</div>
+
+									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">7</div>
+
+									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">8</div>
+
+									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">9</div>
 
 								</div>
 
@@ -147,9 +165,7 @@ class CartPage {
 					</div>
 				</div>`;
 
-				document.querySelector(
-					'#cart-total'
-				).innerHTML = `<span class="text-lg text-gray-800 pl-6">Subtotal ${cartArr.length} item(s): </span>
+				cartTotal.innerHTML = `<span class="text-lg text-gray-800 pl-6">Subtotal ${cartArr.length} item(s): </span>
 				
 				<span class="text-lg font-semibold text-gray-800">£${cartArr
 					.map(v => {
@@ -162,12 +178,12 @@ class CartPage {
 				`;
 			}
 
-			document.querySelector('#cart-page').classList.remove('hidden');
-			document.querySelector('#order-info').classList.remove('hidden');
+			cartContainer.classList.remove('hidden');
+			orderInfo.classList.remove('hidden');
 		} else {
-			document.querySelector('#cart-page').classList.add('hidden');
-			document.querySelector('#order-info').classList.add('hidden');
-			document.querySelector('#no-cart-items').classList.remove('hidden');
+			cartContainer.classList.add('hidden');
+			orderInfo.classList.add('hidden');
+			noCartItems.classList.remove('hidden');
 		}
 	}
 }
@@ -178,16 +194,30 @@ if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
 	document.addEventListener('DOMContentLoaded', () => {
 		cartPage.cartHtml();
 
-		document.querySelectorAll('#cart-delete-btn').forEach(v => {
+		deleteFromCartButton.forEach(v => {
 			v.addEventListener('click', e => {
-				cart.removeFromCart(e.path[3].children[0].children[0].textContent);
+				buildCart.removeFromCart(e.path[3].children[0].children[0].textContent);
 				window.location.reload();
 			});
 		});
 
-		document.querySelectorAll('#quantity-element').forEach(v => {
+		quantityContainer.forEach(v => {
 			v.addEventListener('click', () => {
-				console.log(v.closest('div').closest('div'));
+				v.firstElementChild.classList.toggle('hidden');
+			});
+		});
+
+		quantityElement.forEach(v => {
+			v.addEventListener('click', e => {
+				let quantity = parseFloat(v.textContent);
+				for (let i = 0; i < quantity; i++) {
+					// cart.addToCart()
+
+					//search cart function
+					// search cart see how many their already are and subtract that from quantity then run add cart
+
+					console.log(e.path[4].firstElementChild);
+				}
 			});
 		});
 	});
