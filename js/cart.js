@@ -1,12 +1,12 @@
-const addToCartButton = document.querySelectorAll('#cart-btn');
-const deleteFromCartButton = document.querySelectorAll('#cart-delete-btn');
+const addToCartButtons = document.querySelectorAll('#cart-btn');
+const deleteFromCartButtons = document.querySelectorAll('#cart-delete-btn');
 const cartItemsNumber = document.querySelector('#cart-items');
 const cartContainer = document.querySelector('#cart-page');
 const cartTotal = document.querySelector('#cart-total');
 const orderInfo = document.querySelector('#order-info');
 const noCartItems = document.querySelector('#no-cart-items');
-const quantityContainer = document.querySelectorAll('#quantity-element');
-const quantityElement = document.querySelectorAll('#quantity-menu-item');
+const quantityContainers = document.querySelectorAll('#quantity-element');
+const quantityElements = document.querySelectorAll('#quantity-menu-item');
 
 class BuildCart {
 	constructor() {
@@ -16,6 +16,8 @@ class BuildCart {
 			this.cart = [];
 		}
 	}
+
+	//could make this reusable by adding product name as an arg
 
 	addToCart(element) {
 		for (let i = 0; i < this.cart.length; i++) {
@@ -39,6 +41,7 @@ class BuildCart {
 
 	removeFromCart(name) {
 		for (let i = 0; i < this.cart.length; i++) {
+			console.log(name);
 			if (name === this.cart[i].name) {
 				window.localStorage.setItem(
 					'cart',
@@ -61,7 +64,7 @@ class BuildCart {
 
 const buildCart = new BuildCart();
 
-addToCartButton.forEach(v => {
+addToCartButtons.forEach(v => {
 	v.addEventListener('click', e => {
 		buildCart.addToCart(v.parentElement);
 	});
@@ -194,27 +197,33 @@ if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
 	document.addEventListener('DOMContentLoaded', () => {
 		cartPage.cartHtml();
 
-		deleteFromCartButton.forEach(v => {
+		deleteFromCartButtons.forEach(v => {
 			v.addEventListener('click', e => {
 				buildCart.removeFromCart(e.path[3].children[0].children[0].textContent);
 				window.location.reload();
 			});
 		});
 
-		quantityContainer.forEach(v => {
+		quantityContainers.forEach(v => {
 			v.addEventListener('click', () => {
 				v.firstElementChild.classList.toggle('hidden');
 			});
 		});
 
-		quantityElement.forEach(v => {
+		quantityElements.forEach(v => {
 			v.addEventListener('click', e => {
+				console.log('hello');
 				let quantity = parseFloat(v.textContent);
+
 				for (let i = 0; i < quantity; i++) {
 					// cart.addToCart()
 
 					//search cart function
 					// search cart see how many their already are and subtract that from quantity then run add cart
+
+					//faster algorithm --- go to element and add remaining to quantitiy
+
+					//we can then use this for add to cart func
 
 					console.log(e.path[4].firstElementChild);
 				}
