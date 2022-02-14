@@ -7,10 +7,20 @@ class buildCart {
 		}
 	}
 
-	addToCart(element) {
+	searchCart(criteria) {
+		for (let obj of this.cart) {
+			for (let key in obj) {
+				if (obj[key] === criteria) {
+					return obj;
+				}
+			}
+		}
+	}
+
+	addToCart(name, img, price, quantity = 1) {
 		for (let i = 0; i < this.cart.length; i++) {
-			if (this.cart[i].name === element.querySelector('#product-name').textContent) {
-				this.cart[i].quantity++;
+			if (this.cart[i].name === name) {
+				this.cart[i].quantity + quantity;
 
 				window.localStorage.setItem('cart', JSON.stringify(this.cart));
 
@@ -19,9 +29,9 @@ class buildCart {
 		}
 
 		this.cart.push({
-			name     : element.querySelector('#product-name').textContent,
-			image    : element.querySelector('#product-img').getAttribute('src'),
-			price    : element.querySelector('#product-price').textContent,
+			name     : name,
+			image    : img,
+			price    : price,
 			quantity : 1
 		});
 		window.localStorage.setItem('cart', JSON.stringify(this.cart));
@@ -29,7 +39,7 @@ class buildCart {
 
 	removeFromCart(name) {
 		for (let i = 0; i < this.cart.length; i++) {
-			if (name === this.cart[i].name) {
+			if (this.cart[i].name === name) {
 				window.localStorage.setItem(
 					'cart',
 					JSON.stringify(
@@ -52,8 +62,12 @@ class buildCart {
 const cart = new buildCart();
 
 document.querySelectorAll('#cart-btn').forEach(v => {
-	v.addEventListener('click', e => {
-		cart.addToCart(v.parentElement);
+	v.addEventListener('click', () => {
+		cart.addToCart(
+			v.parentElement.querySelector('#product-name').textContent,
+			v.parentElement.querySelector('#product-img').getAttribute('src'),
+			v.parentElement.querySelector('#product-price').textContent
+		);
 	});
 });
 
@@ -112,15 +126,15 @@ class CartPage {
 
 								<div id="quantity-menu" class="w-full z-10 h-48 bg-white absolute top-10 left-0 rounded-lg flex flex-col overflow-y-scroll hidden">
 								
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">1</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">2</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">3</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">4</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">5</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">6</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">7</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">8</div>
-									<div class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">9</div>
+									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">1</div>
+									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">2</div>
+									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">3</div>
+									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">4</div>
+									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">5</div>
+									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">6</div>
+									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">7</div>
+									<div id="quantity-element" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">8</div>
+									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">9</div>
 
 								</div>
 
@@ -187,7 +201,24 @@ if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
 
 		document.querySelectorAll('#quantity-element').forEach(v => {
 			v.addEventListener('click', () => {
-				console.log(v.closest('div').closest('div'));
+				v.parentElement.firstElementChild.firstElementChild.classList.toggle('hidden');
+			});
+		});
+
+		document.querySelectorAll('#quantity-number-btn').forEach(v => {
+			v.addEventListener('click', e => {
+				console.log(e.target.textContent);
+
+				const item = cart.searchCart(
+					v.parentElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild
+						.textContent
+				);
+
+				item.quantity = parseFloat(e.target.textContent);
+
+				cart.addToCart(item.name, item.image, item.price, item.quantity);
+
+				window.location.reload();
 			});
 		});
 	});
