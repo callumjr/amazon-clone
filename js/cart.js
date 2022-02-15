@@ -1,3 +1,12 @@
+const cartTotal = document.querySelector('#cart-total');
+const cartContainer = document.querySelector('#cart-page');
+const cartButtons = document.querySelectorAll('#cart-btn');
+const orderInfo = document.querySelector('#order-info');
+const noCartItems = document.querySelector('#no-cart-items');
+const cartDeleteButtons = document.querySelectorAll('#cart-delete-btn');
+const quantityElements = document.querySelectorAll('#quantity-element');
+const quantityNumberButtons = document.querySelectorAll('#quantity-number-btn');
+
 class buildCart {
 	constructor() {
 		if (window.localStorage.getItem('cart')) {
@@ -61,7 +70,7 @@ class buildCart {
 
 const cart = new buildCart();
 
-document.querySelectorAll('#cart-btn').forEach(v => {
+cartButtons.forEach(v => {
 	v.addEventListener('click', () => {
 		cart.addToCart(
 			v.parentElement.querySelector('#product-name').textContent,
@@ -161,9 +170,7 @@ class CartPage {
 					</div>
 				</div>`;
 
-				document.querySelector(
-					'#cart-total'
-				).innerHTML = `<span class="text-lg text-gray-800 pl-6">Subtotal ${cartArr.length} item(s): </span>
+				cartTotal.innerHTML = `<span class="text-lg text-gray-800 pl-6">Subtotal ${cartArr.length} item(s): </span>
 				
 				<span class="text-lg font-semibold text-gray-800">£${cartArr
 					.map(v => {
@@ -176,12 +183,12 @@ class CartPage {
 				`;
 			}
 
-			document.querySelector('#cart-page').classList.remove('hidden');
-			document.querySelector('#order-info').classList.remove('hidden');
+			cartContainer.classList.remove('hidden');
+			orderInfo.classList.remove('hidden');
 		} else {
-			document.querySelector('#cart-page').classList.add('hidden');
-			document.querySelector('#order-info').classList.add('hidden');
-			document.querySelector('#no-cart-items').classList.remove('hidden');
+			cartContainer.classList.add('hidden');
+			orderInfo.classList.add('hidden');
+			noCartItems.classList.remove('hidden');
 		}
 	}
 }
@@ -192,23 +199,21 @@ if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
 	document.addEventListener('DOMContentLoaded', () => {
 		cartPage.cartHtml();
 
-		document.querySelectorAll('#cart-delete-btn').forEach(v => {
+		cartDeleteButtons.forEach(v => {
 			v.addEventListener('click', e => {
 				cart.removeFromCart(e.path[3].children[0].children[0].textContent);
 				window.location.reload();
 			});
 		});
 
-		document.querySelectorAll('#quantity-element').forEach(v => {
+		quantityElements.forEach(v => {
 			v.addEventListener('click', () => {
 				v.parentElement.firstElementChild.firstElementChild.classList.toggle('hidden');
 			});
 		});
 
-		document.querySelectorAll('#quantity-number-btn').forEach(v => {
+		quantityNumberButtons.forEach(v => {
 			v.addEventListener('click', e => {
-				console.log(e.target.textContent);
-
 				const item = cart.searchCart(
 					v.parentElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild
 						.textContent
