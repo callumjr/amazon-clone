@@ -107,7 +107,7 @@ class CartPage {
 						<img src="${cartArr[i].image}" alt="" class="w-40">
 					</div>
 
-					<div class="w-6/12">
+					<div class="pl-4 w-10/12">
 						<div>
 							<h3 class="text-xl">${cartArr[i].name}</h3>
 						</div>
@@ -122,7 +122,7 @@ class CartPage {
 
 						<div class="flex items-center space-x-6">
 						
-							<div id="quantity-element" class="flex hover:cursor-pointer rounded-lg border border-gray-200 p-2 w-2/12 sm:w-4/12 justify-between shadow-md relative">
+							<div id="quantity-element" class="flex hover:cursor-pointer rounded-lg border border-gray-200 p-2 w-2/12 justify-between shadow-md relative">
 
 								<div id="quantity-menu" class="w-full z-10 h-48 bg-white absolute top-10 left-0 rounded-lg flex flex-col overflow-y-scroll hidden">
 								
@@ -138,7 +138,7 @@ class CartPage {
 
 								</div>
 
-								<span class="text-sm mr-1">Qty:</span>
+								<span class="hidden lg:block md:block text-sm mr-1">Qty:</span>
 
 								<span class="text-sm mr-1">${cartArr[i].quantity}</span>
 
