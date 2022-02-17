@@ -17,14 +17,6 @@ class BuildCart {
 		}
 	}
 
-<<<<<<< HEAD
-	//could make this reusable by adding product name as an arg
-
-	addToCart(element) {
-		for (let i = 0; i < this.cart.length; i++) {
-			if (this.cart[i].name === element.querySelector('#product-name').textContent) {
-				this.cart[i].quantity++;
-=======
 	searchCart(criteria) {
 		for (let obj of this.cart) {
 			for (let key in obj) {
@@ -34,7 +26,6 @@ class BuildCart {
 			}
 		}
 	}
->>>>>>> old-state
 
 	addToCart(name, img, price, quantity = 1) {
 		if (this.searchCart(name)) {
@@ -57,12 +48,7 @@ class BuildCart {
 
 	removeFromCart(name) {
 		for (let i = 0; i < this.cart.length; i++) {
-<<<<<<< HEAD
-			console.log(name);
-			if (name === this.cart[i].name) {
-=======
 			if (this.cart[i].name === name) {
->>>>>>> old-state
 				window.localStorage.setItem(
 					'cart',
 					JSON.stringify(
@@ -86,15 +72,11 @@ const buildCart = new BuildCart();
 
 addToCartButtons.forEach(v => {
 	v.addEventListener('click', e => {
-<<<<<<< HEAD
-		buildCart.addToCart(v.parentElement);
-=======
 		cart.addToCart(
 			v.parentElement.querySelector('#product-name').textContent,
 			v.parentElement.querySelector('#product-img').getAttribute('src'),
 			v.parentElement.querySelector('#product-price').textContent
 		);
->>>>>>> old-state
 	});
 });
 
@@ -153,25 +135,6 @@ class CartPage {
 
 								<div id="quantity-menu" class="w-full z-10 h-48 bg-white absolute top-10 left-0 rounded-lg flex flex-col overflow-y-scroll hidden">
 								
-<<<<<<< HEAD
-									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">1</div>
-
-									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">2</div>
-
-									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">3</div>
-
-									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">4</div>
-
-									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">5</div>
-
-									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">6</div>
-
-									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">7</div>
-
-									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">8</div>
-
-									<div id="quantity-menu-item" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">9</div>
-=======
 									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">1</div>
 									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">2</div>
 									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">3</div>
@@ -181,7 +144,6 @@ class CartPage {
 									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">7</div>
 									<div id="quantity-element" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">8</div>
 									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">9</div>
->>>>>>> old-state
 
 								</div>
 
@@ -246,29 +208,6 @@ if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
 
 		quantityContainers.forEach(v => {
 			v.addEventListener('click', () => {
-<<<<<<< HEAD
-				v.firstElementChild.classList.toggle('hidden');
-			});
-		});
-
-		quantityElements.forEach(v => {
-			v.addEventListener('click', e => {
-				console.log('hello');
-				let quantity = parseFloat(v.textContent);
-
-				for (let i = 0; i < quantity; i++) {
-					// cart.addToCart()
-
-					//search cart function
-					// search cart see how many their already are and subtract that from quantity then run add cart
-
-					//faster algorithm --- go to element and add remaining to quantitiy
-
-					//we can then use this for add to cart func
-
-					console.log(e.path[4].firstElementChild);
-				}
-=======
 				v.parentElement.firstElementChild.firstElementChild.classList.toggle('hidden');
 			});
 		});
@@ -285,7 +224,6 @@ if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
 				cart.addToCart(item.name, item.image, item.price, quantity);
 
 				window.location.reload();
->>>>>>> old-state
 			});
 		});
 	});
