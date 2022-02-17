@@ -1,12 +1,3 @@
-const cartTotal = document.querySelector('#cart-total');
-const cartContainer = document.querySelector('#cart-page');
-const cartButtons = document.querySelectorAll('#cart-btn');
-const orderInfo = document.querySelector('#order-info');
-const noCartItems = document.querySelector('#no-cart-items');
-const cartDeleteButtons = document.querySelectorAll('#cart-delete-btn');
-const quantityElements = document.querySelectorAll('#quantity-element');
-const quantityNumberButtons = document.querySelectorAll('#quantity-number-btn');
-
 class buildCart {
 	constructor() {
 		if (window.localStorage.getItem('cart')) {
@@ -27,14 +18,13 @@ class buildCart {
 	}
 
 	addToCart(name, img, price, quantity = 1) {
-		for (let i = 0; i < this.cart.length; i++) {
-			if (this.cart[i].name === name) {
-				this.cart[i].quantity + quantity;
+		if (this.searchCart(name)) {
+			this.searchCart(name).quantity += quantity;
+			//figure out how to get in both situations
 
-				window.localStorage.setItem('cart', JSON.stringify(this.cart));
+			window.localStorage.setItem('cart', JSON.stringify(this.cart));
 
-				return;
-			}
+			return;
 		}
 
 		this.cart.push({
@@ -70,8 +60,8 @@ class buildCart {
 
 const cart = new buildCart();
 
-cartButtons.forEach(v => {
-	v.addEventListener('click', () => {
+document.querySelectorAll('#cart-btn').forEach(v => {
+	v.addEventListener('click', e => {
 		cart.addToCart(
 			v.parentElement.querySelector('#product-name').textContent,
 			v.parentElement.querySelector('#product-img').getAttribute('src'),
@@ -170,7 +160,9 @@ class CartPage {
 					</div>
 				</div>`;
 
-				cartTotal.innerHTML = `<span class="text-lg text-gray-800 pl-6">Subtotal ${cartArr.length} item(s): </span>
+				document.querySelector(
+					'#cart-total'
+				).innerHTML = `<span class="text-lg text-gray-800 pl-6">Subtotal ${cartArr.length} item(s): </span>
 				
 				<span class="text-lg font-semibold text-gray-800">£${cartArr
 					.map(v => {
@@ -183,12 +175,12 @@ class CartPage {
 				`;
 			}
 
-			cartContainer.classList.remove('hidden');
-			orderInfo.classList.remove('hidden');
+			document.querySelector('#cart-page').classList.remove('hidden');
+			document.querySelector('#order-info').classList.remove('hidden');
 		} else {
-			cartContainer.classList.add('hidden');
-			orderInfo.classList.add('hidden');
-			noCartItems.classList.remove('hidden');
+			document.querySelector('#cart-page').classList.add('hidden');
+			document.querySelector('#order-info').classList.add('hidden');
+			document.querySelector('#no-cart-items').classList.remove('hidden');
 		}
 	}
 }
@@ -199,29 +191,29 @@ if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
 	document.addEventListener('DOMContentLoaded', () => {
 		cartPage.cartHtml();
 
-		cartDeleteButtons.forEach(v => {
+		document.querySelectorAll('#cart-delete-btn').forEach(v => {
 			v.addEventListener('click', e => {
 				cart.removeFromCart(e.path[3].children[0].children[0].textContent);
 				window.location.reload();
 			});
 		});
 
-		quantityElements.forEach(v => {
+		document.querySelectorAll('#quantity-element').forEach(v => {
 			v.addEventListener('click', () => {
 				v.parentElement.firstElementChild.firstElementChild.classList.toggle('hidden');
 			});
 		});
 
-		quantityNumberButtons.forEach(v => {
+		document.querySelectorAll('#quantity-number-btn').forEach(v => {
 			v.addEventListener('click', e => {
 				const item = cart.searchCart(
 					v.parentElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild
 						.textContent
 				);
 
-				item.quantity = parseFloat(e.target.textContent);
+				quantity = parseFloat(e.target.textContent - item.quantity);
 
-				cart.addToCart(item.name, item.image, item.price, item.quantity);
+				cart.addToCart(item.name, item.image, item.price, quantity);
 
 				window.location.reload();
 			});
