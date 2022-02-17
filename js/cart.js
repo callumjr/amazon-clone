@@ -30,7 +30,6 @@ class BuildCart {
 	addToCart(name, img, price, quantity = 1) {
 		if (this.searchCart(name)) {
 			this.searchCart(name).quantity += quantity;
-			//figure out how to get in both situations
 
 			window.localStorage.setItem('cart', JSON.stringify(this.cart));
 
