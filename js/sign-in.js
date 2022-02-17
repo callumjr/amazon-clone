@@ -67,5 +67,5 @@ if (
 }
 
 if (window.location.href === 'http://127.0.0.1:5501/sign-in-password.html') {
-	document.querySelector('.email-insert').innerHTML = `<span>${window.sessionStorage.getItem('email')}</span>`;
+	emailInsert.innerHTML = `<span>${window.sessionStorage.getItem('email')}</span>`;
 }

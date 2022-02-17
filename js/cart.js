@@ -1,4 +1,14 @@
-class buildCart {
+const addToCartButtons = document.querySelectorAll('#cart-btn');
+const deleteFromCartButtons = document.querySelectorAll('#cart-delete-btn');
+const cartItemsNumber = document.querySelector('#cart-items');
+const cartContainer = document.querySelector('#cart-page');
+const cartTotal = document.querySelector('#cart-total');
+const orderInfo = document.querySelector('#order-info');
+const noCartItems = document.querySelector('#no-cart-items');
+const quantityContainers = document.querySelectorAll('#quantity-element');
+const quantityElements = document.querySelectorAll('#quantity-menu-item');
+
+class BuildCart {
 	constructor() {
 		if (window.localStorage.getItem('cart')) {
 			this.cart = JSON.parse(window.localStorage.getItem('cart'));
@@ -20,7 +30,6 @@ class buildCart {
 	addToCart(name, img, price, quantity = 1) {
 		if (this.searchCart(name)) {
 			this.searchCart(name).quantity += quantity;
-			//figure out how to get in both situations
 
 			window.localStorage.setItem('cart', JSON.stringify(this.cart));
 
@@ -58,9 +67,9 @@ class buildCart {
 	}
 }
 
-const cart = new buildCart();
+const buildCart = new BuildCart();
 
-document.querySelectorAll('#cart-btn').forEach(v => {
+addToCartButtons.forEach(v => {
 	v.addEventListener('click', e => {
 		cart.addToCart(
 			v.parentElement.querySelector('#product-name').textContent,
@@ -74,7 +83,7 @@ if (window.localStorage.getItem('cart')) {
 	let cart = JSON.parse(window.localStorage.getItem('cart'));
 
 	if (cart.length > 0) {
-		document.querySelector('#cart-items').innerHTML = `${cart
+		cartItemsNumber.innerHTML = `${cart
 			.map(v => {
 				return v.quantity;
 			})
@@ -85,7 +94,7 @@ if (window.localStorage.getItem('cart')) {
 }
 
 function deleteCart() {
-	cart.clearCart();
+	buildCart.clearCart();
 	window.location.reload();
 }
 
@@ -100,7 +109,7 @@ class CartPage {
 			let cartArr = JSON.parse(window.localStorage.getItem('cart'));
 
 			for (let i = 0; i < cartArr.length; i++) {
-				document.querySelector('#cart-page').innerHTML += `
+				cartContainer.innerHTML += `
 				<div class="p-4 w-full bg-white flex justify-between border-b border-slate-300">
 					<div class="w-3/12">
 						<img src="${cartArr[i].image}" alt="" class="w-40">
@@ -160,9 +169,7 @@ class CartPage {
 					</div>
 				</div>`;
 
-				document.querySelector(
-					'#cart-total'
-				).innerHTML = `<span class="text-lg text-gray-800 pl-6">Subtotal ${cartArr.length} item(s): </span>
+				cartTotal.innerHTML = `<span class="text-lg text-gray-800 pl-6">Subtotal ${cartArr.length} item(s): </span>
 				
 				<span class="text-lg font-semibold text-gray-800">£${cartArr
 					.map(v => {
@@ -175,12 +182,12 @@ class CartPage {
 				`;
 			}
 
-			document.querySelector('#cart-page').classList.remove('hidden');
-			document.querySelector('#order-info').classList.remove('hidden');
+			cartContainer.classList.remove('hidden');
+			orderInfo.classList.remove('hidden');
 		} else {
-			document.querySelector('#cart-page').classList.add('hidden');
-			document.querySelector('#order-info').classList.add('hidden');
-			document.querySelector('#no-cart-items').classList.remove('hidden');
+			cartContainer.classList.add('hidden');
+			orderInfo.classList.add('hidden');
+			noCartItems.classList.remove('hidden');
 		}
 	}
 }
@@ -191,14 +198,14 @@ if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
 	document.addEventListener('DOMContentLoaded', () => {
 		cartPage.cartHtml();
 
-		document.querySelectorAll('#cart-delete-btn').forEach(v => {
+		deleteFromCartButtons.forEach(v => {
 			v.addEventListener('click', e => {
-				cart.removeFromCart(e.path[3].children[0].children[0].textContent);
+				buildCart.removeFromCart(e.path[3].children[0].children[0].textContent);
 				window.location.reload();
 			});
 		});
 
-		document.querySelectorAll('#quantity-element').forEach(v => {
+		quantityContainers.forEach(v => {
 			v.addEventListener('click', () => {
 				v.parentElement.firstElementChild.firstElementChild.classList.toggle('hidden');
 			});
