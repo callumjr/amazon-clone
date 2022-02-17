@@ -1,5 +1,6 @@
 const countryContainer = document.querySelector('#country-container');
 const countryDropdown = document.querySelector('#country-dropdown');
+<<<<<<< HEAD
 const signInContainer = document.querySelector('#sign-in-container');
 const signInDropdown = document.querySelector('#sign-in-dropdown');
 const countryOverlay = document.querySelector('#country-overlay');
@@ -10,6 +11,18 @@ const adressPopUpDiv = document.querySelector('#address-popup-div');
 const carouselSlider = document.querySelector('#carousel-slider');
 const nextButton = document.querySelector('#next');
 const previousButton = document.querySelector('#prev');
+=======
+const countryOverlay = document.querySelector('#country-overlay');
+const signInContainer = document.querySelector('#sign-in-container');
+const signInDropdown = document.querySelector('#sign-in-dropdown');
+const adressContainer = document.querySelector('#address-container');
+const adressPopup = document.querySelector('#address-popup');
+const adressPopupDiv = document.querySelector('#address-popup-div');
+const overlay = document.querySelector('#overlay');
+const carouselSlider = document.querySelector('#carousel-slider');
+const nextButton = document.querySelector('#next');
+const prevButton = document.querySelector('#prev');
+>>>>>>> old-state
 
 class DropDownMenu {
 	show(element) {
@@ -59,7 +72,11 @@ signInContainer.addEventListener('mouseover', e => {
 	dropDownMenu.show(countryOverlay);
 });
 
+<<<<<<< HEAD
 document.addEventListener('mouseup', function(e) {
+=======
+document.addEventListener('mouseout', function(e) {
+>>>>>>> old-state
 	if (!signInDropdown.contains(e.target)) {
 		dropDownMenu.hide(countryOverlay);
 	}
@@ -74,7 +91,11 @@ signInContainer.addEventListener('mouseout', () => {
 });
 
 class PopUpMenu {
+<<<<<<< HEAD
 	show(popUp) {
+=======
+	show(popUp, overlay) {
+>>>>>>> old-state
 		popUp.classList.remove('hidden');
 
 		overlay.classList.add('opacity-100');
@@ -91,12 +112,21 @@ const popUpMenu = new PopUpMenu();
 
 adressContainer.addEventListener('click', e => {
 	e.preventDefault();
+<<<<<<< HEAD
 	popUpMenu.show(adressPopUp, overlay);
 });
 
 document.addEventListener('mouseup', function(e) {
 	if (!adressPopUp.classList.contains('hidden') && !adressPopUpDiv.contains(e.target)) {
 		popUpMenu.hide(adressPopUp, overlay);
+=======
+	popUpMenu.show(adressPopup, overlay);
+});
+
+document.addEventListener('mouseup', function(e) {
+	if (!adressPopup.classList.contains('hidden') && !adressPopupDiv.contains(e.target)) {
+		popUpMenu.hide(adressPopup, overlay);
+>>>>>>> old-state
 	}
 });
 
@@ -193,7 +223,11 @@ if (window.location.href === 'http://127.0.0.1:5501/index.html') {
 		slider.next();
 	});
 
+<<<<<<< HEAD
 	previousButton.addEventListener('click', () => {
+=======
+	prevButton.addEventListener('click', () => {
+>>>>>>> old-state
 		slider.prev();
 	});
 

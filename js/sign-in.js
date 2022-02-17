@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const invalidEmailNotice = document.querySelector('#invalid-email');
 const helpIconRight = document.querySelector('#help-icon-right');
 const helpIconDown = document.querySelector('#help-icon-down');
@@ -6,6 +7,15 @@ const continueButton = document.querySelector('#continue-button');
 const emailBox = document.querySelector('#email-phone-number');
 const helpButton = document.querySelector('#help-button');
 const emailInsert = document.querySelector('.email-insert');
+=======
+const invalidEmail = document.querySelector('#invalid-email');
+const helpIconRight = document.querySelector('#help-icon-right');
+const helpIconDown = document.querySelector('#help-icon-down');
+const helpExtras = document.querySelector('.help-extras');
+const helpButton = document.querySelector('#help-button');
+const continueButton = document.querySelector('#continue-button');
+const emailBox = document.querySelector('#email-phone-number');
+>>>>>>> old-state
 
 class SignIn {
 	emailValidation(value) {
@@ -15,19 +25,32 @@ class SignIn {
 
 			window.open('/sign-in-password.html', '_self');
 
+<<<<<<< HEAD
 			if (!invalidEmailNotice.classList.contains('hidden')) {
 				invalidEmailNotice.classList.add('hidden');
+=======
+			if (!invalidEmail.classList.contains('hidden')) {
+				invalidEmail.classList.add('hidden');
+>>>>>>> old-state
 			}
 		} else if (/^\d{11}$/.test(value)) {
 			this.number = value;
 
 			window.open('/sign-in-password.html', '_self');
 
+<<<<<<< HEAD
 			if (!invalidEmailNotice.classList.contains('hidden')) {
 				invalidEmailNotice.classList.add('hidden');
 			}
 		} else {
 			invalidEmailNotice.classList.remove('hidden');
+=======
+			if (!invalidEmail.classList.contains('hidden')) {
+				invalidEmail.classList.add('hidden');
+			}
+		} else {
+			invalidEmail.classList.remove('hidden');
+>>>>>>> old-state
 		}
 	}
 
