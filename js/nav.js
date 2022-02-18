@@ -31,7 +31,6 @@ const dropDownMenu = new DropDownMenu();
 // Country dropdown
 
 countryContainer.addEventListener('mouseover', e => {
-	e.preventDefault();
 	dropDownMenu.show(countryOverlay);
 });
 
