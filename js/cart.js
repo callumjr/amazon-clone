@@ -20,7 +20,6 @@ class buildCart {
 	addToCart(name, img, price, quantity = 1) {
 		if (this.searchCart(name)) {
 			this.searchCart(name).quantity += quantity;
-			//figure out how to get in both situations
 
 			window.localStorage.setItem('cart', JSON.stringify(this.cart));
 
@@ -59,16 +58,6 @@ class buildCart {
 }
 
 const cart = new buildCart();
-
-document.querySelectorAll('#cart-btn').forEach(v => {
-	v.addEventListener('click', e => {
-		cart.addToCart(
-			v.parentElement.querySelector('#product-name').textContent,
-			v.parentElement.querySelector('#product-img').getAttribute('src'),
-			v.parentElement.querySelector('#product-price').textContent
-		);
-	});
-});
 
 if (window.localStorage.getItem('cart')) {
 	let cart = JSON.parse(window.localStorage.getItem('cart'));
