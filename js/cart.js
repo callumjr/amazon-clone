@@ -1,63 +1,4 @@
-class buildCart {
-	constructor() {
-		if (window.localStorage.getItem('cart')) {
-			this.cart = JSON.parse(window.localStorage.getItem('cart'));
-		} else {
-			this.cart = [];
-		}
-	}
-
-	searchCart(criteria) {
-		for (let obj of this.cart) {
-			for (let key in obj) {
-				if (obj[key] === criteria) {
-					return obj;
-				}
-			}
-		}
-	}
-
-	addToCart(name, img, price, quantity = 1) {
-		if (this.searchCart(name)) {
-			this.searchCart(name).quantity += quantity;
-
-			window.localStorage.setItem('cart', JSON.stringify(this.cart));
-
-			return;
-		}
-
-		this.cart.push({
-			name     : name,
-			image    : img,
-			price    : price,
-			quantity : 1
-		});
-		window.localStorage.setItem('cart', JSON.stringify(this.cart));
-	}
-
-	removeFromCart(name) {
-		for (let i = 0; i < this.cart.length; i++) {
-			if (this.cart[i].name === name) {
-				window.localStorage.setItem(
-					'cart',
-					JSON.stringify(
-						this.cart.filter(v => {
-							return v.name !== name;
-						})
-					)
-				);
-
-				return;
-			}
-		}
-	}
-
-	clearCart() {
-		window.localStorage.clear('cart');
-	}
-}
-
-const cart = new buildCart();
+import { cart } from './cart-class.js';
 
 if (window.localStorage.getItem('cart')) {
 	let cart = JSON.parse(window.localStorage.getItem('cart'));
@@ -176,38 +117,34 @@ class CartPage {
 
 const cartPage = new CartPage();
 
-if (window.location.href === 'http://127.0.0.1:5501/cart-page.html') {
-	document.addEventListener('DOMContentLoaded', () => {
-		cartPage.cartHtml();
+document.addEventListener('DOMContentLoaded', () => {
+	cartPage.cartHtml();
 
-		document.querySelectorAll('#cart-delete-btn').forEach(v => {
-			v.addEventListener('click', e => {
-				cart.removeFromCart(e.path[3].children[0].children[0].textContent);
-				window.location.reload();
-			});
-		});
-
-		document.querySelectorAll('#quantity-element').forEach(v => {
-			v.addEventListener('click', () => {
-				v.parentElement.firstElementChild.firstElementChild.classList.toggle('hidden');
-			});
-		});
-
-		document.querySelectorAll('#quantity-number-btn').forEach(v => {
-			v.addEventListener('click', e => {
-				const item = cart.searchCart(
-					v.parentElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild
-						.textContent
-				);
-
-				quantity = parseFloat(e.target.textContent - item.quantity);
-
-				cart.addToCart(item.name, item.image, item.price, quantity);
-
-				window.location.reload();
-			});
+	document.querySelectorAll('#cart-delete-btn').forEach(v => {
+		v.addEventListener('click', e => {
+			cart.removeFromCart(e.path[3].children[0].children[0].textContent);
+			window.location.reload();
 		});
 	});
-}
 
-//.
+	document.querySelectorAll('#quantity-element').forEach(v => {
+		v.addEventListener('click', () => {
+			v.parentElement.firstElementChild.firstElementChild.classList.toggle('hidden');
+		});
+	});
+
+	document.querySelectorAll('#quantity-number-btn').forEach(v => {
+		v.addEventListener('click', e => {
+			const item = cart.searchCart(
+				v.parentElement.parentElement.parentElement.parentElement.firstElementChild.firstElementChild
+					.textContent
+			);
+
+			quantity = parseFloat(e.target.textContent - item.quantity);
+
+			cart.addToCart(item.name, item.image, item.price, quantity);
+
+			window.location.reload();
+		});
+	});
+});

@@ -4,9 +4,8 @@ const helpIconDown = document.querySelector('#help-icon-down');
 const helpExtras = document.querySelector('.help-extras');
 const helpButton = document.querySelector('#help-button');
 const continueButton = document.querySelector('#continue-button');
-const emailBox = document.querySelector('#email-phone-number');
 
-class SignIn {
+class SignInEmail {
 	emailValidation(value) {
 		if (/^([a-zA-Z0-9_\.\-]+)@([a-zA-Z]+).([a-zA-Z\.]+)$/.test(value)) {
 			this.email = value;
@@ -37,35 +36,26 @@ class SignIn {
 	}
 }
 
-const signIn = new SignIn();
+export const signIn = new SignInEmail();
 
-if (
-	window.location.href === 'http://127.0.0.1:5501/sign-in.html#' ||
-	window.location.href === 'http://127.0.0.1:5501/sign-in.html?#'
-) {
-	continueButton.addEventListener('click', e => {
-		e.preventDefault();
+continueButton.addEventListener('click', e => {
+	e.preventDefault();
+	signIn.emailValidation(emailBox.value);
+});
+
+continueButton.addEventListener('click', e => {
+	e.preventDefault();
+	signIn.emailValidation(emailBox.value);
+});
+
+document.addEventListener('keydown', e => {
+	e.preventDefault();
+	if (e.key === 'Enter') {
 		signIn.emailValidation(emailBox.value);
-	});
+	}
+});
 
-	continueButton.addEventListener('click', e => {
-		e.preventDefault();
-		signIn.emailValidation(emailBox.value);
-	});
-
-	document.addEventListener('keydown', e => {
-		e.preventDefault();
-		if (e.key === 'Enter') {
-			signIn.emailValidation(emailBox.value);
-		}
-	});
-
-	helpButton.addEventListener('click', e => {
-		e.preventDefault();
-		signIn.helpDropdown();
-	});
-}
-
-if (window.location.href === 'http://127.0.0.1:5501/sign-in-password.html') {
-	emailInsert.innerHTML = `<span>${window.sessionStorage.getItem('email')}</span>`;
-}
+helpButton.addEventListener('click', e => {
+	e.preventDefault();
+	signIn.helpDropdown();
+});
