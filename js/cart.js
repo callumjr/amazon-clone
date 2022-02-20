@@ -1,10 +1,17 @@
 import { cart } from './cart-class.js';
 
+const cartContainer = document.querySelector('#cart-page');
+const cartItems = document.querySelector('#cart-items');
+const deselectItems = document.querySelector('#cart-deselect');
+const orderInfo = document.querySelector('#order-info');
+const cartTotal = document.querySelector('#cart-total');
+const noItems = document.querySelector('#no-cart-items');
+
 if (window.localStorage.getItem('cart')) {
 	let cart = JSON.parse(window.localStorage.getItem('cart'));
 
 	if (cart.length > 0) {
-		document.querySelector('#cart-items').innerHTML = `${cart
+		cartItems.innerHTML = `${cart
 			.map(v => {
 				return v.quantity;
 			})
@@ -14,7 +21,7 @@ if (window.localStorage.getItem('cart')) {
 	}
 }
 
-document.querySelector('#cart-deselect').addEventListener('click', () => {
+deselectItems.addEventListener('click', () => {
 	cart.clearCart();
 	window.location.reload();
 });
@@ -30,7 +37,7 @@ class CartPage {
 			let cartArr = JSON.parse(window.localStorage.getItem('cart'));
 
 			for (let i = 0; i < cartArr.length; i++) {
-				document.querySelector('#cart-page').innerHTML += `
+				cartContainer.innerHTML += `
 				<div class="p-4 w-full bg-white flex justify-between border-b border-slate-300">
 					<div class="w-3/12">
 						<img src="${cartArr[i].image}" alt="" class="w-40">
@@ -62,7 +69,7 @@ class CartPage {
 									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">5</div>
 									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">6</div>
 									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">7</div>
-									<div id="quantity-element" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">8</div>
+									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">8</div>
 									<div id="quantity-number-btn" class="border-b border-gray-200 py-2 pl-2 text-gray-600 hover:bg-gray-100">9</div>
 
 								</div>
@@ -90,9 +97,7 @@ class CartPage {
 					</div>
 				</div>`;
 
-				document.querySelector(
-					'#cart-total'
-				).innerHTML = `<span class="text-lg text-gray-800 pl-6">Subtotal ${cartArr.length} item(s): </span>
+				cartTotal.innerHTML = `<span class="text-lg text-gray-800 pl-6">Subtotal ${cartArr.length} item(s): </span>
 				
 				<span class="text-lg font-semibold text-gray-800">£${cartArr
 					.map(v => {
@@ -105,12 +110,14 @@ class CartPage {
 				`;
 			}
 
-			document.querySelector('#cart-page').classList.remove('hidden');
-			document.querySelector('#order-info').classList.remove('hidden');
+			cartContainer.classList.remove('hidden');
+			deselectItems.classList.remove('hidden');
+			orderInfo.classList.remove('hidden');
 		} else {
-			document.querySelector('#cart-page').classList.add('hidden');
-			document.querySelector('#order-info').classList.add('hidden');
-			document.querySelector('#no-cart-items').classList.remove('hidden');
+			cartContainer.classList.add('hidden');
+			deselectItems.classList.add('hidden');
+			orderInfo.classList.add('hidden');
+			noItems.classList.remove('hidden');
 		}
 	}
 }
