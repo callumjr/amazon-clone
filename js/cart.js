@@ -14,10 +14,10 @@ if (window.localStorage.getItem('cart')) {
 	}
 }
 
-function deleteCart() {
+document.querySelector('#cart-deselect').addEventListener('click', () => {
 	cart.clearCart();
 	window.location.reload();
-}
+});
 
 class CartPage {
 	constructor() {}
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					.textContent
 			);
 
-			quantity = parseFloat(e.target.textContent - item.quantity);
+			let quantity = parseFloat(e.target.textContent - item.quantity);
 
 			cart.addToCart(item.name, item.image, item.price, quantity);
 
