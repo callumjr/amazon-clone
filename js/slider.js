@@ -7,6 +7,7 @@ class Slider {
 		this.element = element;
 		this.size = size;
 		this.counter = counter;
+		this.timer = timer;
 
 		carouselSlider.style.transform = `translateX(${-size * counter}px)`;
 
