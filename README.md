@@ -1,5 +1,4 @@
 # amazon-clone
-## Amazon Clone
 
 ### Description
 
